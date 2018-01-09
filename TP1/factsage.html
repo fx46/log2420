@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0044)http://www.crct.polymtl.ca/fact/equiexpl.htm -->
+<HTML><HEAD><TITLE>Explanation of EQUILIB-Web Results</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2715.400" name=GENERATOR></HEAD>
+<BODY text=#000088 bgColor=#ffffff>
+<CENTER>
+  
+<table width="100%" border="3" align="center" cellpadding="3" bordercolor="#0066CC">
+  <tr>
+      <td><H2 align="center"><font color="#000066" face="Lucida Sans Unicode, Arial">FACT-Format 
+        Output<br>
+        <img src="spacer.jpg" width="409" height="16"> </font></H2>
+<CENTER>
+  <font color="#000000" size="2" face="Lucida Sans Unicode, Arial">Let us examine 
+  the results for the following molar reaction at 1 atm and 298.15 K: </font> 
+        <PRE><font color="#000066"><B> Mg    +    3 Cu<sub>2</sub>O  +   2 Fe<sub>3</sub>C    =   ?</B>
+</font></PRE>
+        <P align="justify"><font color="#000000" size="2" face="Lucida Sans Unicode, Arial">Complete 
+          equilibrium is assumed (i.e. kinetics are ignored). In <B>Equilib-Web</B>, 
+          the possible equilibrium products are an ideal gas phase, pure solids 
+          and pure liquids. In the <strong><font color="#CC6600">Equilib</font></strong> 
+          module of the full </font><font face="Lucida Sans Unicode, Verdana, Tahoma, Arial" color="#0B075E" size="3"><img src="fact/images/fact_sage_logo_petit.jpg" width="90" height="30" align="absmiddle"></font><font color="#000000" size="2" face="Lucida Sans Unicode, Arial"> 
+          package, charged species (aqueous and gaseous ions), non-ideal solution 
+          data and additional databases can also be included.</font> 
+        <hr noshade>
+  <div align="left"></div>
+</CENTER>
+      <FONT color=#000000 size="2" face="Lucida Sans Unicode, Arial">
+      <p align="justify">The FACT-Format prints the computed equilibrium composition 
+        of the gas phase followed by all possible product solids and liquids, 
+        ordered with respect to activity. Even if the gas phase is not stable 
+        (as in the current example), the output still yields equilibrium potentials 
+        of the gaseous species. </p>
+      <P align="justify"><font color="#000000">From the Gibbs phase rule, F = 
+        C - P +2, F is degrees of freedom, C is the number of components, and 
+        P is the number of phases. In <B>Equilib-Web</B> the product T and P are 
+        constrained (i.e. F = 2). In the present example there are 5 elements 
+        (Mg, Cu, O, Fe and C) and so from the phase rule there will be up to 5 
+        stable product phases.</font> </FONT> <pre><font size="2" face="Courier New, Courier, mono"> Mg +  3 Cu2O +  2 Fe3C = 
+       
+    0.00000     mol   (  0.17814E-19 CO2 
+                      +  0.40065E-20 CO <I><FONT color=#0000ff> <I>   <font color="#990000">-&gt;</font></I></FONT><FONT color=#990000> These are mole fractions. </FONT></I>
+ <I><FONT color=#990000>0 mol denotes  : </FONT></I>    +  0.64397E-52 Cu<I><font color="#990000">     </font><FONT color=#0000ff><I><font color="#990000">-&gt; </font></I></FONT><FONT color=#990000>Although no Fe(g) is formed.</FONT>
+ <FONT color=#990000>no product gas.: </FONT></I>    +  0.27902E-63 Fe <I><FONT color=#0000ff>    <I><font color="#990000">-&gt;</font></I></FONT><FONT color=#990000> P(Fe)eq = 0.279e-63 atm.</FONT><FONT color=#0000ff> </FONT></I>
+                      +  0.22972E-69 C3O2)<I><FONT color=#0000ff>  </FONT><font color="#990000"><I>-&gt;</I> Total P=0.21821e-19 atm.</font><FONT color=#0000ff> </FONT></I> 
+                           (298.15 K, 1 atm, gas_ideal, a=0.21821E-19)
+       
+ <I><FONT color=#990000>Note the pure  : </FONT></I>    +  6.0000      mol  Cu <I><font color="#990000">              -&gt; 6 mol Cu</font><FONT color=#0000ff> </FONT></I> 
+ <I><FONT color=#990000>stable solids; : </FONT></I>         (298.15 K, 1 atm, S1, a= 1.0000)
+ <I><FONT color=#990000>activity = 1.0 : </FONT></I> 
+                      +  4.5000      mol  Fe_bcc<I><FONT color=#0000ff> </FONT><I><FONT color=#990000>          -&gt;</FONT></I><FONT color=#990000> 4.5 mol Fe</FONT><FONT color=#0000ff> </FONT></I> 
+                           (298.15 K, 1 atm, S1, a= 1.0000) 
+       
+                      +  2.0000      mol  C_graphite<I><FONT color=#0000ff> </FONT><font color="#990000"><I>      -&gt;</I> 2 mol C</font></I> 
+                           (298.15 K, 1 atm, S1, a= 1.0000) 
+       
+                      +  1.0000      mol  MgO_periclase<I><FONT color=#0000ff> <I><font color="#990000">   -&gt;</font></I><font color="#990000"> 1 mol MgO</font> </FONT></I> 
+                           (298.15 K, 1 atm, S1, a= 1.0000) 
+       
+                      +  0.50000     mol  Fe3O4_magnetite<I><FONT color=#0000ff>  </FONT><I><FONT color=#990000>-&gt;</FONT></I><FONT color=#990000> 0.5 mol Fe3O4</FONT><FONT color=#0000ff> </FONT></I> 
+                           (298.15 K, 1 atm, S1, a= 1.0000)
+ <I><FONT color=#990000>Phases beyond this :</FONT></I> 
+ <I><FONT color=#990000>point are not      :</FONT></I> +  0.00000     mol  C_diamond<I><FONT color=#0000ff>        <I><font color="#990000">-&gt;</font></I></FONT><FONT color=#990000> 0 mol C </FONT></I> 
+ <I><FONT color=#990000>formed;            :</FONT></I>      (298.15 K, 1 atm, S2, a=0.31007)
+ <I><FONT color=#990000>0 mol and          :</FONT></I>
+ <I><FONT color=#990000>activity &lt; 1.0.    :</FONT></I> +  0.00000     mol  (MgO)(Fe2O3)        
+                           (298.15 K, 1 atm, S1, a=0.26830)
+ <br> <I><FONT color=#990000>All phases are     :</FONT></I> <I><FONT color=#990000>        
+       
+ ordered w.r.t.     :</FONT></I> +  ........................ <i><FONT color=#990000>
+
+ activity.          :</FONT></i> 
+                      +  0.00000 mol Mg 
+                           (298.15 K, 1 atm, L1, a=0.90088E-56)</font>
+
+ The cutoff concentration has been specified to 1.000E-70<br> <br> Data on 1 product species identified with &quot;X&quot; have not been extrapolated in<br> computing the phase assemblage<br> <br> *****************************************************************<br>      H          G          V          S          U         Cp<br>     (J)        (J)        (l)       (J/K)       (J)       (J/K)<br> *****************************************************************<br> -1.160E+06 -1.289E+06  0.000E+00  4.332E+02 -1.160E+06  3.885E+02</FONT>
+<FONT color=#000000 size="2" face="Lucida Sans Unicode, Arial"></FONT></pre>
+      <FONT color=#000000 size="2" face="Lucida Sans Unicode, Arial"> 
+      <p align=justify>The equilibrium products - Cu, Fe, C, MgO and Fe<sub>3</sub>O<sub>4</sub> 
+        - satisfy the mass balance. The gas phase is treated as ideal ('gas_ideal'). 
+        The results show the sum of the gas partial pressures is 0.21821e-19 atm. 
+        Since the total pressure is 1 atm, the gas phase is not stable.</p>
+   
+      <P align="justify"><font face="Lucida Sans Unicode, Arial, Verdana">In the <font color="#000000" size="2"> 
+        <strong><font color="#CC6600">Equilib</font></strong> module of the full 
+        <img src="fact/images/fact_sage_logo_petit.jpg" width="90" height="30" align="absmiddle"> 
+        package the gas can be treated as real using the virial equation of state 
+        and gas coefficient data, and the product total pressure (or total volume) 
+        fixed at values other than unity. Compressibilities of the condensed phases 
+        also may be included in the computation. </p>
+      </font> </td>
+    </tr>
+  </table>
+  
+<br>
+<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td colspan="2"><div align="center"> 
+        <hr>
+      </div></td>
+  </tr>
+  <tr> 
+    <td><div align="left"><font color="#666666" size="1" face="Lucida Sans Unicode, Arial">Last 
+        updated: August 2002, <a href="mailto:c.bale@polymtl.ca">Christopher W. 
+        Bale</a><br>
+        </font></div></td>
+    <td><div align="right"><font color="#666666" size="1" face="Lucida Sans Unicode, Arial">~ 
+        page created by<a href="mailto:eve.belisle@polymtl.ca"> Eve B&eacute;lisle</a> 
+        ~</font></div></td>
+  </tr>
+</table>
+</BODY></HTML>
+

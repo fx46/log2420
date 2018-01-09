@@ -1,0 +1,244 @@
+{
+	"formule": "Mg +  3 Cu2O +  2 Fe3C = ?",
+	"output1": [{
+			"libelle": "CO2",
+			"concentration": 0.17814E-19,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "gas_ideal",
+				"a": 0.21821E-19
+			}
+		},
+		{
+			"libelle": "CO",
+			"concentration": 0.40065E-20,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "gas_ideal",
+				"a": 0.21821E-19
+			}
+		},
+		{
+			"libelle": "Cu",
+			"concentration": 0.64397E-52,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "gas_ideal",
+				"a": 0.21821E-19
+			}
+		},
+		{
+			"libelle": "Fe",
+			"concentration": 0.27902E-63,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "gas_ideal",
+				"a": 0.21821E-19
+			}
+		},
+		{
+			"libelle": "C3O2",
+			"concentration": 0.22972E-69,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "gas_ideal",
+				"a": 0.21821E-19
+			}
+		},
+		{
+			"libelle": "Cu",
+			"concentration": 6.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "Fe_bcc",
+			"concentration": 4.5000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "C_graphite",
+			"concentration": 2.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "MgO_periclase",
+			"concentration": 1.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "Fe3O4_magnetite",
+			"concentration": 0.5000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "C_diamond",
+			"concentration": 0.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S2",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "MgO",
+			"concentration": 0.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		},
+		{
+			"libelle": "Mg",
+			"concentration": 0.0000,
+			"conditions": {
+				"temperature": {
+					"unite": "K",
+					"valeur": 298.15
+				},
+				"pression": {
+					"unite": "atm",
+					"valeur": 1
+				},
+				"type": "S1",
+				"a": 1
+			}
+		}
+	],
+
+	"output2": [{
+			"libelle": "H",
+			"unite": "J",
+			"valeur": -1.160E+06
+		},
+		{
+			"libelle": "G",
+			"unite": "J",
+			"valeur": -1.289E+06
+		},
+		{
+			"libelle": "V",
+			"unite": "l",
+			"valeur": 0.000E+00
+		},
+		{
+			"libelle": "S",
+			"unite": "J/K",
+			"valeur": 4.332E+02
+		},
+		{
+			"libelle": "U",
+			"unite": "J",
+			"valeur": -1.160E+06
+		},
+		{
+			"libelle": "Cp",
+			"unite": "J/K",
+			"valeur": 3.885E+02
+		}
+	]
+}
