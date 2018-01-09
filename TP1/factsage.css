@@ -1,3 +1,24 @@
 body {
-    background-color: white;
+    background-color: F3D8E5;
+    
+}
+.text-center{
+	text-align : center;
+}
+
+h1 {
+	
+	color: Green;
+	font-size: 200%;
+}
+
+p{
+	font-size: 90%;
+}
+#formule{
+	color:blue;
+}
+
+hr{
+	color:Green;
 }
