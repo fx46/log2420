@@ -1,21 +1,23 @@
 body {
     background-color: F3D8E5;
-    
 }
 .text-center{
 	text-align : center;
 }
 
 h1 {
-	
+	font: Calibri;
 	color: Green;
 	font-size: 200%;
+	font: calibri;
 }
 
 p{
+	font: Calibri;
 	font-size: 90%;
 }
 #formule{
+	font: Calibri;
 	color:blue;
 }
 
