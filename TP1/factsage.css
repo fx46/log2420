@@ -1,8 +1,9 @@
 body {
-    background-color: F3D8E5;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/09/33/99581586f6e5606.jpg")
 }
 .text-center{
 	text-align : center;
+	color: white;
 }
 
 h1 {
@@ -24,8 +25,17 @@ p{
 hr{
 	color:Green;
 }
+table {
+	width: 50%;
+	border: 1px solid white;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+}
 
-table, th, td {
-    border: 1px solid black;
+th, td {
+	color: white;
+    border: 1px solid orange;
     border-spacing: 0px;
 }
