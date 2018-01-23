@@ -24,3 +24,7 @@ p{
 hr{
 	color:Green;
 }
+
+table, th, td {
+    border: 1px solid black;
+}
