@@ -7,18 +7,15 @@ xmlhttp.onreadystatechange = function() {
      	var noeud = document.getElementById('table');
      	var header = document.createElement('th');
        
-     	header.innerHTML = myObj.formule; <!-- Va chercher le header -->
+     	header.innerHTML = myObj.formule;   // Va chercher le header
      	noeud.appendChild(header);
       
      	for (var i = 0; i < myObj.output1.length; i++){
          
-        var par = document.createElement('tr');
-        noeud.appendChild(par);
-        
-        par = document.createElement('td');
-        noeud.appendChild(par);
+        noeud.appendChild(document.createElement('tr'));
+        noeud.appendChild(document.createElement('td'));  //on cree une colonne vide
          
-     		par = document.createElement('td');
+     		var par = document.createElement('td');
       	par.innerHTML = myObj.output1[i].libelle;
       	noeud.appendChild(par);
   	  }
