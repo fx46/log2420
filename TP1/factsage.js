@@ -9,12 +9,13 @@ xmlhttp.onreadystatechange = function() {
 		var headerRow = document.createElement('tr');
 		noeud.appendChild(headerRow);       // Row pour le header
      	var header = document.createElement('th');
-     	header.innerHTML = myObj.formule;   // Va chercher le header
+     	header.innerHTML = myObj.formule;   // On va chercher le header
 		header.colSpan = "3";
      	noeud.appendChild(header);
       
-		var nbGasIdeal = 5;
+		var nbGasIdeal = 5;		//Selon le fichier data-output.json
 	  
+		//Pour chaque gas ideal, on ajoute les informations dans des nouvelles cases.
      	for (var i = 0; i < nbGasIdeal; i++){  
 			var row = document.createElement('tr')
 			noeud.appendChild(row);
@@ -41,7 +42,8 @@ xmlhttp.onreadystatechange = function() {
 		par.style = "color:red; border-bottom:0px; border-top:0px;";
 		row.appendChild(par);  //on cree une colonne vide
 		
-		var par = document.createElement('td');
+		//Ajout des conditions
+		var par = document.createElement('td');		
 		par.innerHTML += "( " + myObj.output1[0].conditions.temperature.valeur;
 		par.innerHTML += " " + myObj.output1[0].conditions.temperature.unite;
 		par.innerHTML += ", " + myObj.output1[0].conditions.pression.valeur;
@@ -55,7 +57,8 @@ xmlhttp.onreadystatechange = function() {
 		par2.style = "color:red; border-bottom:0px; border-top:0px;";
 		row.appendChild(par2);  //on cree une colonne vide
 		
-     	for (var j = nbGasIdeal; j < myObj.output1.length; j++){  
+		//Ajout des autres éléments (pas gas parfait) dans le tableau
+     	for (var j = nbGasIdeal; j < myObj.output1.length; j++){	
 			var row = document.createElement('tr')
 			noeud.appendChild(row);
 			var par = document.createElement('td')
@@ -78,7 +81,8 @@ xmlhttp.onreadystatechange = function() {
 			par.style = "color:red; border-bottom:0px; border-top:0px;";
 			row.appendChild(par);  //on cree une colonne vide
 			
-			var par = document.createElement('td');
+			//Ajout des conditions
+			var par = document.createElement('td');		
 			par.innerHTML += "( " + myObj.output1[j].conditions.temperature.valeur;
 			par.innerHTML += " " + myObj.output1[j].conditions.temperature.unite;
 			par.innerHTML += ", " + myObj.output1[j].conditions.pression.valeur;
@@ -92,6 +96,7 @@ xmlhttp.onreadystatechange = function() {
 			par2.style = "color:red; border-bottom:0px; border-top:0px;";
 			row.appendChild(par2);  //on cree une colonne vide
 			
+			//Ajout d'une ligne contenant la case "........................"
 			if(j == myObj.output1.length - 2){
 				var row = document.createElement('tr')
 				noeud.appendChild(row);
@@ -109,6 +114,7 @@ xmlhttp.onreadystatechange = function() {
 			}
 		}
 		
+		//On ajoute les informations de la deuxieme table du fichier data-output.json
 		var noeud2 = document.getElementById('table2');
 		var row = document.createElement('tr')
 		noeud2.appendChild(row);
@@ -125,6 +131,8 @@ xmlhttp.onreadystatechange = function() {
 			par.innerHTML += myObj.output2[i].libelle;
 			row.appendChild(par);
 		}
+		
+		//Ajustement des contours des cellules.
 		noeud.rows[1].cells[0].style = "color:red; border-bottom:0px; border-top:0px;";
 		noeud.rows[23].cells[0].style = "color:red; border-top:0px;";
 		noeud.rows[23].cells[2].style = "color:red; border-top:0px;";
@@ -155,7 +163,9 @@ xmlhttp.onreadystatechange = function() {
 		noeud.rows[19].cells[2].innerText ="0 mol MgO";
 		noeud.rows[21].cells[2].innerText ="0 mol Mg";
     }
+	
 };
+
 xmlhttp.open("GET", "data-output.json", true);
 xmlhttp.send();
 
