@@ -59,54 +59,39 @@ xmlhttp.onreadystatechange = function() {
 		
 		//Ajout des autres éléments (pas gas parfait) dans le tableau
      	for (var j = nbGasIdeal; j < myObj.output1.length; j++){	
-			var row = document.createElement('tr')
-			noeud.appendChild(row);
-			var par = document.createElement('td')
-			par.style = "color:red; border-bottom:0px; border-top:0px;";
-			row.appendChild(par);  //on cree une colonne vide
-			 
-			var par = document.createElement('td');
-			par.innerHTML += " + ";
-			par.innerHTML += myObj.output1[j].concentration.toFixed(4);
-			par.innerHTML += " mol " + myObj.output1[j].libelle;
-			row.appendChild(par);
-			
-			var par2 = document.createElement('td')
-			par2.style = "color:red; border-bottom:0px; border-top:0px;";
-			row.appendChild(par2);  //on cree une colonne vide
-			
-			var row = document.createElement('tr')
-			noeud.appendChild(row);
-			var par = document.createElement('td')
-			par.style = "color:red; border-bottom:0px; border-top:0px;";
-			row.appendChild(par);  //on cree une colonne vide
-			
-			//Ajout des conditions
-			var par = document.createElement('td');		
-			par.innerHTML += "( " + myObj.output1[j].conditions.temperature.valeur;
-			par.innerHTML += " " + myObj.output1[j].conditions.temperature.unite;
-			par.innerHTML += ", " + myObj.output1[j].conditions.pression.valeur;
-			par.innerHTML += " " + myObj.output1[j].conditions.pression.unite;
-			par.innerHTML += ", " + myObj.output1[j].conditions.type;
-			par.innerHTML += ", a = " + myObj.output1[j].conditions.a.toFixed(4) + ")";
-			row.appendChild(par);
-			par.style="padding:0 20px;";
-			
-			var par2 = document.createElement('td')
-			par2.style = "color:red; border-bottom:0px; border-top:0px;";
-			row.appendChild(par2);  //on cree une colonne vide
-			
-			//Ajout d'une ligne contenant la case "........................"
-			if(j == myObj.output1.length - 2){
+				if(myObj.output1[j].concentration.toFixed(4) != "0.0000"){
 				var row = document.createElement('tr')
 				noeud.appendChild(row);
 				var par = document.createElement('td')
 				par.style = "color:red; border-bottom:0px; border-top:0px;";
 				row.appendChild(par);  //on cree une colonne vide
-					
+				 
 				var par = document.createElement('td');
-				par.innerHTML = "+  ........................";
+				par.innerHTML += " + ";
+				par.innerHTML += myObj.output1[j].concentration.toFixed(4);
+				par.innerHTML += " mol " + myObj.output1[j].libelle;
 				row.appendChild(par);
+				
+				var par2 = document.createElement('td')
+				par2.style = "color:red; border-bottom:0px; border-top:0px;";
+				row.appendChild(par2);  //on cree une colonne vide
+				
+				var row = document.createElement('tr')
+				noeud.appendChild(row);
+				var par = document.createElement('td')
+				par.style = "color:red; border-bottom:0px; border-top:0px;";
+				row.appendChild(par);  //on cree une colonne vide
+				
+				//Ajout des conditions
+				var par = document.createElement('td');		
+				par.innerHTML += "( " + myObj.output1[j].conditions.temperature.valeur;
+				par.innerHTML += " " + myObj.output1[j].conditions.temperature.unite;
+				par.innerHTML += ", " + myObj.output1[j].conditions.pression.valeur;
+				par.innerHTML += " " + myObj.output1[j].conditions.pression.unite;
+				par.innerHTML += ", " + myObj.output1[j].conditions.type;
+				par.innerHTML += ", a = " + myObj.output1[j].conditions.a.toFixed(4) + ")";
+				row.appendChild(par);
+				par.style="padding:0 20px;";
 				
 				var par2 = document.createElement('td')
 				par2.style = "color:red; border-bottom:0px; border-top:0px;";
@@ -116,6 +101,16 @@ xmlhttp.onreadystatechange = function() {
 		
 		//On ajoute les informations de la deuxieme table du fichier data-output.json
 		var noeud2 = document.getElementById('table2');
+		
+		var headerRow2 = document.createElement('tr');
+		noeud2.appendChild(headerRow2);       // Row pour le header
+     	var header2 = document.createElement('th');
+     	header2.innerHTML = "The cutoff concentration has been specified to 1.000E-70. Data on 1 product species identified with 'X' have not been extrapolated in computing the phase assemblage";
+		header2.colSpan = "7";
+     	noeud2.appendChild(header2);
+		
+		
+		
 		var row = document.createElement('tr')
 		noeud2.appendChild(row);
 		var par = document.createElement('td');
@@ -134,8 +129,8 @@ xmlhttp.onreadystatechange = function() {
 		
 		//Ajustement des contours des cellules.
 		noeud.rows[1].cells[0].style = "color:red; border-bottom:0px; border-top:0px;";
-		noeud.rows[23].cells[0].style = "color:red; border-top:0px;";
-		noeud.rows[23].cells[2].style = "color:red; border-top:0px;";
+		noeud.rows[16].cells[0].style = "color:red; border-top:0px;";
+		noeud.rows[16].cells[2].style = "color:red; border-top:0px;";
 		noeud.rows[1].cells[0].innerText = "0.0000 mol";
 		
 		//ajout des commentaires:
@@ -143,12 +138,9 @@ xmlhttp.onreadystatechange = function() {
 		noeud.rows[4].cells[0].innerText = "product gas. ";
 		noeud.rows[7].cells[0].innerText ="Note the pure stable ";
 		noeud.rows[8].cells[0].innerText ="solids. activity = 1.0 ";
-		noeud.rows[16].cells[0].innerText ="Phases beyond this  ";
-		noeud.rows[17].cells[0].innerText ="point are not formed    ";
-		noeud.rows[18].cells[0].innerText ="0 mol and activity < 1.0.";
-		noeud.rows[20].cells[0].innerText ="All phases are ";
-		noeud.rows[21].cells[0].innerText ="ordered w.r.t. ";
-		noeud.rows[22].cells[0].innerText ="activity. ";
+		noeud.rows[14].cells[0].innerText ="All phases are ";
+		noeud.rows[15].cells[0].innerText ="ordered w.r.t. ";
+		noeud.rows[16].cells[0].innerText ="activity. ";
 		
 		noeud.rows[2].cells[2].innerText ="These are mole fractions.";
 		noeud.rows[3].cells[2].innerText ="Although no Fe(g) is formed.";
@@ -159,9 +151,6 @@ xmlhttp.onreadystatechange = function() {
 		noeud.rows[11].cells[2].innerText ="2 mol C ";
 		noeud.rows[13].cells[2].innerText ="1 mol MgO  ";
 		noeud.rows[15].cells[2].innerText ="0.5 mol Fe3O4 ";
-		noeud.rows[17].cells[2].innerText ="0 mol C";
-		noeud.rows[19].cells[2].innerText ="0 mol MgO";
-		noeud.rows[21].cells[2].innerText ="0 mol Mg";
     }
 	
 };
