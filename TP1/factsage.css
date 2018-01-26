@@ -26,7 +26,7 @@ hr{
 	color:Green;
 }
 table {
-	width: 50%;
+	width: 60%;
 	border: 1px solid white;
 	border-collapse: collapse;
 	margin-left: auto;
@@ -38,4 +38,8 @@ th, td {
 	color: white;
     border: 1px solid orange;
     border-spacing: 0px;
+}
+
+tab {
+	color: red;
 }
