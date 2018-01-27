@@ -8,22 +8,21 @@ body {
 
 h1 {
 	font: Calibri;
-	color: Green;
+	color: Orange;
 	font-size: 200%;
 	font: calibri;
 }
-
 p{
 	font: Calibri;
 	font-size: 90%;
 }
 #formule{
 	font: Calibri;
-	color:blue;
+	color:Cyan;
 }
 
 hr{
-	color:Green;
+	color:Orange;
 }
 table {
 	width: 60%;

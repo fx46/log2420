@@ -11,6 +11,7 @@ xmlhttp.onreadystatechange = function() {
      	var header = document.createElement('th');
      	header.innerHTML = myObj.formule;   // On va chercher le header
 		header.colSpan = "3";
+		header.style = "color:cyan"
      	noeud.appendChild(header);
       
 		var nbGasIdeal = 5;		//Selon le fichier data-output.json
