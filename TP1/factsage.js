@@ -11,7 +11,7 @@ xmlhttp.onreadystatechange = function() {
      	var header = document.createElement('th');
      	header.innerHTML = myObj.formule;   // On va chercher le header
 		header.colSpan = "3";
-		header.style = "color:cyan"
+		header.style = "color:E99619"
      	noeud.appendChild(header);
       
 		var nbGasIdeal = 5;		//Selon le fichier data-output.json
@@ -21,7 +21,7 @@ xmlhttp.onreadystatechange = function() {
 			var row = document.createElement('tr')
 			noeud.appendChild(row);
 			var par = document.createElement('td')
-			par.style = "color:red; border-bottom:0px; border-top:0px;";
+			par.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 			row.appendChild(par);  //on cree une colonne vide
 			 
 			var par = document.createElement('td');
@@ -33,14 +33,14 @@ xmlhttp.onreadystatechange = function() {
 			row.appendChild(par);
 			
 			var par2 = document.createElement('td')
-			par2.style = "color:red; border-bottom:0px; border-top:0px;";
+			par2.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 			row.appendChild(par2);  //on cree une colonne vide
 		}
 		
 		var row = document.createElement('tr')
 		noeud.appendChild(row);
 		var par = document.createElement('td')
-		par.style = "color:red; border-bottom:0px; border-top:0px;";
+		par.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 		row.appendChild(par);  //on cree une colonne vide
 		
 		//Ajout des conditions
@@ -55,7 +55,7 @@ xmlhttp.onreadystatechange = function() {
 		par.style="padding:0 20px;";
 		
 		var par2 = document.createElement('td')
-		par2.style = "color:red; border-bottom:0px; border-top:0px;";
+		par2.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 		row.appendChild(par2);  //on cree une colonne vide
 		
 		//Ajout des autres éléments (pas gas parfait) dans le tableau
@@ -64,7 +64,7 @@ xmlhttp.onreadystatechange = function() {
 				var row = document.createElement('tr')
 				noeud.appendChild(row);
 				var par = document.createElement('td')
-				par.style = "color:red; border-bottom:0px; border-top:0px;";
+				par.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 				row.appendChild(par);  //on cree une colonne vide
 				 
 				var par = document.createElement('td');
@@ -74,13 +74,13 @@ xmlhttp.onreadystatechange = function() {
 				row.appendChild(par);
 				
 				var par2 = document.createElement('td')
-				par2.style = "color:red; border-bottom:0px; border-top:0px;";
+				par2.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 				row.appendChild(par2);  //on cree une colonne vide
 				
 				var row = document.createElement('tr')
 				noeud.appendChild(row);
 				var par = document.createElement('td')
-				par.style = "color:red; border-bottom:0px; border-top:0px;";
+				par.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 				row.appendChild(par);  //on cree une colonne vide
 				
 				//Ajout des conditions
@@ -95,7 +95,7 @@ xmlhttp.onreadystatechange = function() {
 				par.style="padding:0 20px;";
 				
 				var par2 = document.createElement('td')
-				par2.style = "color:red; border-bottom:0px; border-top:0px;";
+				par2.style = "color:Crimson; border-bottom:0px; border-top:0px;";
 				row.appendChild(par2);  //on cree une colonne vide
 			}
 		}
@@ -129,9 +129,9 @@ xmlhttp.onreadystatechange = function() {
 		}
 		
 		//Ajustement des contours des cellules.
-		noeud.rows[1].cells[0].style = "color:red; border-bottom:0px; border-top:0px;";
-		noeud.rows[16].cells[0].style = "color:red; border-top:0px;";
-		noeud.rows[16].cells[2].style = "color:red; border-top:0px;";
+		noeud.rows[1].cells[0].style = "color:Crimson; border-bottom:0px; border-top:0px;";
+		noeud.rows[16].cells[0].style = "color:Crimson; border-top:0px;";
+		noeud.rows[16].cells[2].style = "color:Crimson; border-top:0px;";
 		noeud.rows[1].cells[0].innerText = "0.0000 mol";
 		
 		//ajout des commentaires:

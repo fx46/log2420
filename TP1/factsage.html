@@ -10,41 +10,51 @@
 <HTML lang="en-US"><HEAD><TITLE>Explanation of EQUILIB-Web Results</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=windows-1252">
 <META content="MSHTML 6.00.2715.400" name=GENERATOR></HEAD>
-<META http-equiv=Refresh content=10>
+<META http-equiv=Refresh content=100>
+
+
 <BODY>
 
-<div class="text-center">
-<h1> FACT-Format Output </h1>
-<hr id="barretitre" noshade>
-  
-<p> Let us examine the results for the following molar reaction at 1 atm and 298.15 K: </p>
+	<div class="text-center">
 
-<p id="formule"> Mg    +    3 Cu2O  +   2 Fe3C    =   ? </p>
+		<h1> FACT-Format Output </h1>
+		<hr id="barretitre" noshade></hr>
+		  
+		<p> Let us examine the results for the following molar reaction at 1 atm and 298.15 K: </p>
 
-<p> Complete equilibrium is assumed (i.e. kinetics are ignored). In <B>Equilib-Web</B>, 
-the possible equilibrium products are an ideal gas phase, pure solids and pure liquids. 
-In the <strong><font color="silver"> Equilib </font> </strong> module of the full <img src="images/logo.jpg" alt="Logo de FactSage" width="90" height="30" align="absmiddle"> package, charged species (aqueous and gaseous ions), 
-non-ideal solution data and additional databases can also be included. </p>
+		<p id="formule"><b> Mg    +    3 Cu2O  +   2 Fe3C    =   ? </b></p>
 
-<hr noshade>
+		<p> Complete equilibrium is assumed (i.e. kinetics are ignored). In <B>Equilib-Web</B>, 
+		the possible equilibrium products are an ideal gas phase, pure solids and pure liquids. 
+		In the <strong><font color="E99619"> Equilib </font> </strong> module of the full <img src="images/logo.jpg" alt="Logo de FactSage" width="90" height="30" align="absmiddle"> package, charged species (aqueous and gaseous ions), 
+		non-ideal solution data and additional databases can also be included. </p>
 
-<p> The FACT-Format prints the computed equilibrium composition of the gas phase followed
-by all possible product solids and liquids, ordered with respect to activity. Even if the 
-gas phase is not stable (as in the current example), the output still yields equilibrium 
-potentials of the gaseous species. </p>
+		<hr noshade>
 
-<p>From the Gibbs phase rule, F = C - P +2, F is degrees of freedom, C is the number of 
-components, and P is the number of phases. In <B>Equilib-Web</B> the product T and P are 
-constrained (i.e. F = 2). In the present example there are 5 elements (Mg, Cu, O, Fe and 
-C) and so from the phase rule there will be up to 5 stable product phases. </p>
+		<p> The FACT-Format prints the computed equilibrium composition of the gas phase followed
+		by all possible product solids and liquids, ordered with respect to activity. Even if the 
+		gas phase is not stable (as in the current example), the output still yields equilibrium 
+		potentials of the gaseous species. </p>
 
-<table id="table">
-</table>
+		<p>From the Gibbs phase rule, F = C - P +2, F is degrees of freedom, C is the number of 
+		components, and P is the number of phases. In <B>Equilib-Web</B> the product T and P are 
+		constrained (i.e. F = 2). In the present example there are 5 elements (Mg, Cu, O, Fe and 
+		C) and so from the phase rule there will be up to 5 stable product phases. </p>
 
-<table id="table2">
-</table>
+		<table id="table">
+		</table>
 
-</div>
-<script src="factsage.js"> </script>
-</BODY></HTML>
+		<table id="table2">
+		</table>
+
+		<br>
+
+		<p>The equilibrium products - Cu, Fe, C, MgO and Fe<sub>3</sub>O<sub>4</sub> - satisfy the mass balance. The gas phase is treated as ideal ('gas_ideal'). The results show the sum of the gas partial pressures is 0.21821e-19 atm. Since the total pressure is 1 atm, the gas phase is not stable. </p>
+
+		<p> In the <strong><font color="E99619"> Equilib </font> </strong> module of the full <img src="images/logo.jpg" alt="Logo de FactSage" width="90" height="30" align="absmiddle"> package the gas can be treated as real using the virial equation of state and gas coefficient data, and the product total pressure (or total volume) fixed at values other than unity. Compressibilities of the condensed phases also may be included in the computation. </p>
+
+	</div>
+	<script src="factsage.js"> </script>
+</BODY>
+</HTML>
 
