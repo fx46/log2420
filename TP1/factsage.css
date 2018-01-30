@@ -1,5 +1,6 @@
 body {
-    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/zig%20zag%20wool.png")
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/zig%20zag%20wool.png");
+    border: 4px double crimson ;
 }
 .text-center{
 	text-align : center;
@@ -10,7 +11,6 @@ h1 {
 	font: Calibri;
 	color: Chocolate;
 	font-size: 200%;
-	font: calibri;
 }
 p{
 	font: Calibri;
@@ -28,6 +28,8 @@ p{
 }
 
 hr{
+	margin-left:1%; 
+	margin-right:1%;
 	color:Chocolate;
 }
 table {
