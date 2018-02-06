@@ -9,15 +9,46 @@ html, body {
 }
 #header{
 	background-color: rgb(6,109,194);
+	margin: 0px;
 }
-h1 {
-	font: Calibri;
-	color: White;
-	font-size: 200%;
-	font: calibri;
-	margin-top: 0px
-}
+.BouttonMenu{
 
+}
+#velo {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 180%;
+	width: 200px;
+	margin: 0px;
+}
+#Accueil{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 100%;
+	width: 80px;
+	text-align: center;
+}
+a{
+	text-decoration: none;
+	color:white;
+}
+a:hover{
+	background-color: rgb(4,80,144);
+}
+ul{
+	line-height: 50px;
+	margin:0px;
+	padding: 0px;
+	list-style: none;
+	overflow: hidden;
+	
+}
+li{
+	float:left;
+	padding-left: 8px;
+} 
+li a{
+	display: block;
+	
+}
 p{
 	font: Calibri;
 	font-size: 90%;
