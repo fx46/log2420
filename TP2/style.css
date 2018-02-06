@@ -1,10 +1,13 @@
 body {
     background-color: F3D8E5;
+    margin:0px;
 }
 .text-center{
 	text-align : center;
 }
-
+#header{
+	background-color: rgb(6,109,194);
+}
 h1 {
 	font: Calibri;
 	color: Green;
