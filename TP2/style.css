@@ -14,8 +14,10 @@ h1 {
 	font: Calibri;
 	color: White;
 	font-size: 200%;
-	font: calibri;
-	margin-top: 0px
+	line-height: 50px;
+	width: 250px;
+	margin: 0px;
+	text-indent: 3%;
 }
 
 p{
