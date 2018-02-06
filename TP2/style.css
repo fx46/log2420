@@ -1,6 +1,8 @@
-body {
+html, body {
     background-color: GhostWhite;
-    margin:0px;
+    height: 100%;
+ 	margin: 0px;
+  	padding: 0px;
 }
 .text-center{
 	text-align : center;
@@ -10,9 +12,10 @@ body {
 }
 h1 {
 	font: Calibri;
-	color: Green;
+	color: White;
 	font-size: 200%;
 	font: calibri;
+	margin-top: 0px
 }
 
 p{
@@ -21,15 +24,9 @@ p{
 }
 
 hr{
-	color:Green;
+	color:White;
 }
 
 #map {
   height: 100%;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
