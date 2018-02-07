@@ -10,21 +10,28 @@ html, body {
 #header{
 	background-color: rgb(6,109,194);
 	margin: 0px;
+	padding-left: 8%;
+	padding-right: 6%;
 }
 .BouttonMenu{
-
 }
 #velo {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 180%;
-	width: 200px;
+	width: 220px;
+	text-align: center;
 	margin: 0px;
+
 }
 #Accueil{
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 100%;
 	width: 80px;
 	text-align: center;
+}
+
+#Globe{
+	float:right;
 }
 a{
 	text-decoration: none;
@@ -43,7 +50,7 @@ ul{
 }
 li{
 	float:left;
-	padding-left: 8px;
+	padding-left: 0px;
 } 
 li a{
 	display: block;
@@ -52,10 +59,6 @@ li a{
 p{
 	font: Calibri;
 	font-size: 90%;
-}
-
-hr{
-	color:White;
 }
 
 #map {
