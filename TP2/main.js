@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  
+  //var suggests = ["hello", "world"];
+  //$('#inputElem').autocomplete( "option", "delay" );
 
   var xmlhttp = new XMLHttpRequest();
   var map;
