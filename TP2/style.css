@@ -4,34 +4,11 @@ html, body {
  	margin: 0px;
   	padding: 0px;
 }
-.text-center{
-	text-align : center;
-}
 #header{
 	background-color: rgb(6,109,194);
 	margin: 0px;
 	padding-left: 8%;
 	padding-right: 6%;
-}
-.BouttonMenu{
-}
-#velo {
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 180%;
-	width: 220px;
-	text-align: center;
-	margin: 0px;
-
-}
-#Accueil{
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 100%;
-	width: 80px;
-	text-align: center;
-}
-
-#Globe{
-	float:right;
 }
 a{
 	text-decoration: none;
@@ -56,6 +33,26 @@ li a{
 	display: block;
 	
 }
+#velo {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 180%;
+	width: 220px;
+	text-align: center;
+	margin: 0px;
+
+}
+#Accueil{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 100%;
+	width: 80px;
+	text-align: center;
+}
+
+#Globe{
+	float:right;
+	padding-top: 1%;
+}
+
 p{
 	font: Calibri;
 	font-size: 90%;
