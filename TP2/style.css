@@ -33,7 +33,7 @@ li a{
 	display: block;
 	
 }
-#velo {
+#Velo {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 180%;
 	width: 220px;
@@ -51,6 +51,24 @@ li a{
 #Globe{
 	float:right;
 	padding-top: 1%;
+}
+
+#Selection{
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 5%;
+	display:block;
+}
+
+.buttonSelec{
+	display: inline;
+	margin: 0px;
+	padding: 2px;
+	border: solid black 1px;
+	border-radius: 4px 4px 0px 0px;
+}
+.inputElem{
+	display: block;
 }
 
 p{
