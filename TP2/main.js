@@ -13,6 +13,9 @@ $(document).ready(function(){
 		}
 	};
 
+	xmlhttp.open("GET", "https://secure.bixi.com/data/stations.json", true);
+	xmlhttp.send();
+	
 	$("#ContenuListeStation").css("display", "none");
   	$(".select,.none-select")
   		.bind("click", function() {
@@ -34,21 +37,7 @@ $(document).ready(function(){
 			}
 
   		})
-  		
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-    	  var myObj = JSON.parse(this.responseText);  
-        //var paragrapheTest = document.getElementById('test');
-        //paragrapheTest.innerHTML = "Premiere station dans le JSON: ";
-        //paragrapheTest.innerHTML += myObj.stations[0].s;
-        //console.log(myObj);
-      }
-  };
-
-	xmlhttp.open("GET", "https://secure.bixi.com/data/stations.json", true);
-	xmlhttp.send();
-
+		
 	var map;
 	initMap();
 });
