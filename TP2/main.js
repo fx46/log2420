@@ -1,5 +1,4 @@
 $(document).ready(function(){
-<<<<<<< HEAD
 	$("#ContenuListeStation").css("display", "none");
   	$(".select,.none-select")
   		.bind("click", function() {
@@ -21,12 +20,7 @@ $(document).ready(function(){
 			}
 
   		})
-  //var suggests = ["hello", "world"];
-  //$('#inputElem').autocomplete( "option", "delay" );
-
-=======
-	
->>>>>>> 49d259871680037c4b7b2bb895249094da43a86d
+  		
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
