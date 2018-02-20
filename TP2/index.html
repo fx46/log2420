@@ -2,8 +2,11 @@
 <!-- saved from url=(0044)http://www.crct.polymtl.ca/fact/equiexpl.htm -->
 
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="jquery-1.12.4.js"></script>
+	
+	<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
 	<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+	
 	<script type="text/javascript" src="https://secure.bixi.com/data/stations.json"> </script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="main.js"></script>
@@ -35,8 +38,10 @@
     <div class="buttonSelec">Liste des stations</div>
   </div>
 
-
-  <input id="inputElem"></input>
+  <div id="autocomplete">
+	<label for="tags">Recherche: </label>
+	<input id="inputElem">
+  </div>
 
   <div id="ContenuCarteStation">
     <div id="map"></div>

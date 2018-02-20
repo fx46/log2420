@@ -67,8 +67,13 @@ li a{
 	border: solid black 1px;
 	border-radius: 4px 4px 0px 0px;
 }
-.inputElem{
-	display: block;
+
+.ui-autocomplete {
+    /*
+	max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+	*/
 }
 
 p{
