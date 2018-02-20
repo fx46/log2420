@@ -1,5 +1,25 @@
 $(document).ready(function(){
-  
+	$("#ContenuListeStation").css("display", "none");
+  	$(".select,.none-select")
+  		.bind("click", function() {
+  			var noneSelect = $(".select");
+			var select = $(this);
+			noneSelect.addClass("none-select") 
+			noneSelect.removeClass("select");
+			select.addClass("select");
+			select.removeClass("none-select");
+
+			if($(this).html() == "Carte des stations"){
+				$("#ContenuCarteStation").css("display", "inline");
+				$("#ContenuListeStation").css("display", "none");
+			}
+			else {
+				$("#ContenuListeStation").css("display", "inline");
+				$("#ContenuCarteStation").css("display", "none");
+				
+			}
+
+  		})
   //var suggests = ["hello", "world"];
   //$('#inputElem').autocomplete( "option", "delay" );
 
