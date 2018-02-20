@@ -10,6 +10,7 @@ html, body {
 	padding-left: 8%;
 	padding-right: 6%;
 }
+
 a{
 	text-decoration: none;
 	color:white;
@@ -17,7 +18,8 @@ a{
 a:hover{
 	background-color: rgb(4,80,144);
 }
-ul{
+
+#header > ul{
 	line-height: 50px;
 	margin:0px;
 	padding: 0px;
@@ -25,11 +27,11 @@ ul{
 	overflow: hidden;
 	
 }
-li{
+#header > ul > li{
 	float:left;
 	padding-left: 0px;
 } 
-li a{
+#header > ul > li > a{
 	display: block;
 	
 }
@@ -49,7 +51,7 @@ li a{
 }
 
 #Globe{
-	float:right;
+	float:right!important;
 	padding-top: 1%;
 	cursor: pointer;
 }
