@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -44,11 +43,21 @@ $(document).ready(function(){
 
 function initAutocomplete(suggests) {
 	$('#inputElem').autocomplete({
+		/*
 		source: function(request, response) {
 			var results = $.ui.autocomplete.filter(suggests, request.term);
-        
 			response(results.slice(0, 20));
+			//select: function( event, ui ) {} // lors de la sélection d'une proposition
+			$("#Localisation").update(request.term);
 		}
+		*/
+        source: function( request, response ) {
+            var results = $.ui.autocomplete.filter(suggests, request.term);
+			response(results.slice(0, 20));
+        },
+        select: function( event, ui ) {
+			$("#Localisation").text(ui.item.label);
+        }
 	});
 }
 
