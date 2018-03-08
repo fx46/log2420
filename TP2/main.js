@@ -44,12 +44,11 @@ $(document).ready(function(){
 
 function initAutocomplete(suggests) {
 	$('#inputElem').autocomplete({
-		source : suggests
-		//select : function(event, ui){ // lors de la sélection d'une proposition
-		//	
-		//},
-		//maxShowItems : 5,
-		//minLength : 3
+		source: function(request, response) {
+			var results = $.ui.autocomplete.filter(suggests, request.term);
+        
+			response(results.slice(0, 20));
+		}
 	});
 }
 
