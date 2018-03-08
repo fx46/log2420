@@ -11,6 +11,10 @@ html, body {
 	padding-right: 6%;
 }
 
+h2{
+	margin:0px;
+}
+
 a{
 	text-decoration: none;
 	color:white;
@@ -57,10 +61,16 @@ a:hover{
 }
 
 #Selection{
+	color: rgb(6,109,194);
 	padding-top: 1%;
 	padding-bottom: 1%;
 	padding-left: 5%;
 	display:block;
+	font-family: Calibri;
+}
+
+#Localisation{
+	color: black;
 }
 
 .button-Select{
@@ -70,12 +80,8 @@ a:hover{
 	border-radius: 4px 4px 0px 0px;
 }
 
-.ui-autocomplete {
-    /*
-	max-height: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
-	*/
+#autocomplete {
+	padding-top: 1%;
 }
 
 .select{
