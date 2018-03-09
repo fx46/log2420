@@ -41,48 +41,42 @@
 			</div>
 			<div id="ContenuCarteStation">
 				<div id="ContenuCarteStation">
-				<div id="recherche">
-					<label for="tags">Recherche: </label>
-					<input id="inputElem">
-					<h2>Localisation:</h2>
-					<div id="Localisation">Veuillez entrer le nom d'une station</div>
+				<div id="ContenantDerecherche">
+					<div id="recherche">
+						<label for="tags"></label>
+						<input id="inputElem">
+						<h2>Localisation:</h2>
+						<div id="Localisation">Veuillez entrer le nom d'une station</div>
+					</div>
 				</div>
 				<div id="etatStation">
 					<div id="affichageEtatStation">État de la station de vélos</div>
-					<div id="tableau">
-						<div class="textEtat">Id Station</div>
-						<div class="valeur">
-							<div class="icone" id="idStation">-</div>
-						</div>
-						<div class="textEtat">Velos Disponibles</div>
-						<div class="valeur">
-							<div class="icone" id="velosDisponibles">-</div>
-						</div>
-						<div class="textEtat">Bloquee</div>
-						<div class="valeur">
-							<div class="icone" id="bloquee">-</div>
-						</div>
-						<div class="textEtat">Bornes Disponibles</div>
-						<div class="valeur">
-							<div class="icone" id="bornesDisponibles">-</div>
-						</div>
-						<div class="textEtat">Suspendue</div>
-						<div class="valeur">
-							<div class="icone" id="suspendue">-</div>
-						</div>
-						<div class="textEtat">Velos Indisponibles</div>
-						<div class="valeur">
-							<div class="icone" id="veloIndisponibles">-</div>
-						</div>
-						<div class="textEtat">Hors Service</div>
-						<div class="valeur">
-							<div class="icone" id="horsService">-</div>
-						</div>
-						<div class="textEtat">Bornes Indisponibles</div>
-						<div class="valeur">
-							<div class="icone" id="borneIndisponibles">-</div>
-						</div>
-					</div>
+					<table id="tableau1">
+					  <tr>
+						<td>Id Station</td>
+						<td id="idStation">-</td>
+						<td>Vélos disponibles</td>
+						<td id="velosDisponibles">-</td>
+					  </tr>
+					  <tr>
+						<td>Bloquée</td>
+						<td id="bloquee">-</td>
+						<td>Bornes disponibles</td>
+						<td id="bornesDisponibles">-</td>
+					  </tr>
+					  <tr>
+						<td>Suspendue</td>
+						<td id="suspendue">-</td>
+						<td>Vélos indisponibles</td>
+						<td id="veloIndisponibles">-</td>
+					  </tr>
+					  <tr>
+						<td>Hors service</td>
+						<td id="horsService">-</td>
+						<td>Bornes indisponibles</td>
+						<td id="borneIndisponibles">-</td>
+					  </tr>
+					</table>
 				</div>
 			</div>
 			<div id="map"></div>

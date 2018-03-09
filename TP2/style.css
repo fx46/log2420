@@ -3,6 +3,8 @@ html, body {
 	height: 100%;
  	margin: 0px;
   	padding: 0px;
+	font: Calibri;
+	font-size: 100%;
 }
 #header{
 	background-color: rgb(6,109,194);
@@ -32,24 +34,25 @@ a:hover{
 	padding: 0px;
 	list-style: none;
 	overflow: hidden;
-	
 }
+
 #header > ul > li{
 	float:left;
 	padding-left: 0px;
 } 
+
 #header > ul > li > a{
 	display: block;
-	
 }
+
 #Velo {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 180%;
 	width: 220px;
 	text-align: center;
 	margin: 0px;
-
 }
+
 #Accueil{
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 100%;
@@ -67,9 +70,8 @@ a:hover{
 	color: rgb(6,109,194);
 	padding-top: 1%;
 	padding-bottom: 1%;
-	padding-left: 5%;
-	display:block;
-	font-family: Calibri;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
 #Localisation{
@@ -83,20 +85,25 @@ a:hover{
 	border-radius: 4px 4px 0px 0px;
 }
 
-#recherche {
-	padding-top: 1%;
-	width: 50%;
+#ContenantDerecherche {
+	width: 40%;
 	float:left;
 }
 
+#recherche {
+	padding-top: 5%;
+	padding-left: 10%;
+}
+
 #etatStation{
-	width: 50%;
+	width: 60%;
 	float:right;
 }
 
 #affichageEtatStation{
 	border-bottom: 10px solid rgb(6,109,194);
 	width: 100%;
+	font-size: 120%;
 }
 
 .select{
@@ -113,12 +120,9 @@ a:hover{
 
 #inputElem{
 	display: block;
-	width: 35%;
-}
-
-p{
-	font: Calibri;
-	font-size: 90%;
+	width: 42%;
+	height:5%;
+	font-size:100%;
 }
 
 #map {
@@ -131,26 +135,19 @@ p{
 	height: 27px;
 }
 
-#tableau {
-  display: flex;
-  flex-flow: row wrap;
-  border: 1px solid gray;
+#tableau1{
+    border-collapse: collapse;
+    width: 100%;
+	margin-bottom: 20px;
 }
 
-.valeur {
-	border-bottom: 1px solid #d7d7d7;
-	width: calc(25% - 22px);
-	text-align: right;
-	padding: 10px;
-	border-right: 1px solid gray;
-	text-align: center;
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+	width: 25%;
 }
 
-.textEtat {
-	border-bottom: 1px solid #d7d7d7;
-	width: calc(25% - 22px);
-	text-align: right;
-	padding: 10px;
-	border: 1px solid gray;
-	text-align: left;
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
