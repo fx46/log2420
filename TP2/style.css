@@ -96,7 +96,7 @@ a:hover{
 
 #affichageEtatStation{
 	border-bottom: 10px solid rgb(6,109,194);
-	width: 80%;
+	width: 100%;
 }
 
 .select{
@@ -134,23 +134,23 @@ p{
 #tableau {
   display: flex;
   flex-flow: row wrap;
+  border: 1px solid gray;
 }
 
 .valeur {
 	border-bottom: 1px solid #d7d7d7;
-	width: calc(25% - 21px);
+	width: calc(25% - 22px);
 	text-align: right;
 	padding: 10px;
-	border-right: 1px solid #ffffff;
-	border-right: 1px solid #d7d7d7;
+	border-right: 1px solid gray;
 	text-align: center;
 }
 
 .textEtat {
 	border-bottom: 1px solid #d7d7d7;
-	width: calc(25% - 21px);
+	width: calc(25% - 22px);
 	text-align: right;
 	padding: 10px;
-	border-right: 1px solid #ffffff;
+	border: 1px solid gray;
 	text-align: left;
 }

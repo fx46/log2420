@@ -57,7 +57,22 @@ function initAutocomplete(suggests) {
 				//Cherche la station dans le JSON par son nom
 				if (ui.item.label == jsonFile.stations[i].s) {
 					changeMapCenter(jsonFile.stations[i].la, jsonFile.stations[i].lo);
+					
 					document.getElementById('idStation').innerHTML = jsonFile.stations[i].id;
+					document.getElementById('velosDisponibles').innerHTML = jsonFile.stations[i].ba;
+					document.getElementById('veloIndisponibles').innerHTML = jsonFile.stations[i].bx;
+					document.getElementById('bornesDisponibles').innerHTML = jsonFile.stations[i].da;
+					document.getElementById('borneIndisponibles').innerHTML = jsonFile.stations[i].dx;
+					
+					if(jsonFile.stations[i].su) document.getElementById('suspendue').innerHTML = "Oui";
+					else document.getElementById('suspendue').innerHTML = "Non";
+					
+					if(jsonFile.stations[i].m) document.getElementById('horsService').innerHTML = "Oui";
+					else document.getElementById('horsService').innerHTML = "Non";
+					
+					if(jsonFile.stations[i].b) document.getElementById('bloquee').innerHTML = "Oui";
+					else document.getElementById('bloquee').innerHTML = "Non";
+					
 					break;
 				}
 			}
