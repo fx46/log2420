@@ -1,6 +1,6 @@
 html, body {
     background-color: GhostWhite;
-    height: 100%;
+
  	margin: 0px;
   	padding: 0px;
 }
@@ -90,7 +90,6 @@ a:hover{
 }
 
 #etatStation{
-	padding-top: 1%;
 	width: 50%;
 	float:right;
 }
@@ -114,6 +113,7 @@ a:hover{
 
 #inputElem{
 	display: block;
+	width: 35%;
 }
 
 p{
@@ -123,10 +123,34 @@ p{
 
 #map {
   height: 60%;
-  margin: 10%;
+  width: 100%;
 }
 
 #boutons{
 	border-bottom: 1px solid black;
 	height: 27px;
+}
+
+#tableau {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.valeur {
+	border-bottom: 1px solid #d7d7d7;
+	width: calc(25% - 21px);
+	text-align: right;
+	padding: 10px;
+	border-right: 1px solid #ffffff;
+	border-right: 1px solid #d7d7d7;
+	text-align: center;
+}
+
+.textEtat {
+	border-bottom: 1px solid #d7d7d7;
+	width: calc(25% - 21px);
+	text-align: right;
+	padding: 10px;
+	border-right: 1px solid #ffffff;
+	text-align: left;
 }

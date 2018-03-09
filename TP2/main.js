@@ -57,6 +57,7 @@ function initAutocomplete(suggests) {
 				//Cherche la station dans le JSON par son nom
 				if (ui.item.label == jsonFile.stations[i].s) {
 					changeMapCenter(jsonFile.stations[i].la, jsonFile.stations[i].lo);
+					document.getElementById('idStation').innerHTML = jsonFile.stations[i].id;
 					break;
 				}
 			}
