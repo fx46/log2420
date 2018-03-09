@@ -7,11 +7,10 @@
 	<script src="jquery-1.12.4.js"></script>	
 	<!--<script src="jquery-ui-1.12.1/jquery-ui.js"></script>-->
 	
-	<script
-			  src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
-			  integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
-			  crossorigin="anonymous"></script>
-			  
+	<script		src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+				integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+				crossorigin="anonymous"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAHgNyyT80qbB1v--aaZiz2StbDfHmUUMo"></script>		  
 	<script src="main.js"></script>
 	<!-- Link sheet Pour icon-->
 
@@ -35,59 +34,60 @@
 			<li id="Globe"><a><i class="material-icons">public</i></a></li>
 		</ul>
 	</div>
-  
-	<div id="selection">
-		<div id="boutons">
-			<div class="button-Select select Carte" >Carte des stations</div>
-			<div class="button-Select none-select Liste" >Liste des stations</div>
-		</div>
-		<div id="recherche">
-			<label for="tags">Recherche: </label>
-			<input id="inputElem">
-			<h2>Localisation:</h2>
-			<div id="Localisation">Veuillez entrer le nom d'une station</div>
-		</div>
-		<div id="etatStation">
-			<div id="affichageEtatStation">État de la station de vélos</div>
-			<div id="tableau">
-				<div class="textEtat">Id Station</div>
-				<div class="valeur">
-					<div class="icone" id="idStation">-</div>
+		<div id="selection">
+			<div id="boutons">
+				<div class="button-Select select Carte" >Carte des stations</div>
+				<div class="button-Select none-select Liste" >Liste des stations</div>
+			</div>
+			<div id="ContenuCarteStation">
+				<div id="ContenuCarteStation">
+				<div id="recherche">
+					<label for="tags">Recherche: </label>
+					<input id="inputElem">
+					<h2>Localisation:</h2>
+					<div id="Localisation">Veuillez entrer le nom d'une station</div>
 				</div>
-				<div class="textEtat">Velos Disponibles</div>
-				<div class="valeur">
-					<div class="icone" id="velosDisponibles">-</div>
-				</div>
-				<div class="textEtat">Bloquee</div>
-				<div class="valeur">
-					<div class="icone" id="bloquee">-</div>
-				</div>
-				<div class="textEtat">Bornes Disponibles</div>
-				<div class="valeur">
-					<div class="icone" id="bornesDisponibles">-</div>
-				</div>
-				<div class="textEtat">Suspendue</div>
-				<div class="valeur">
-					<div class="icone" id="suspendue">-</div>
-				</div>
-				<div class="textEtat">Velos Indisponibles</div>
-				<div class="valeur">
-					<div class="icone" id="veloIndisponibles">-</div>
-				</div>
-				<div class="textEtat">Hors Service</div>
-				<div class="valeur">
-					<div class="icone" id="horsService">-</div>
-				</div>
-				<div class="textEtat">Bornes Indisponibles</div>
-				<div class="valeur">
-					<div class="icone" id="borneIndisponibles">-</div>
+				<div id="etatStation">
+					<div id="affichageEtatStation">État de la station de vélos</div>
+					<div id="tableau">
+						<div class="textEtat">Id Station</div>
+						<div class="valeur">
+							<div class="icone" id="idStation">-</div>
+						</div>
+						<div class="textEtat">Velos Disponibles</div>
+						<div class="valeur">
+							<div class="icone" id="velosDisponibles">-</div>
+						</div>
+						<div class="textEtat">Bloquee</div>
+						<div class="valeur">
+							<div class="icone" id="bloquee">-</div>
+						</div>
+						<div class="textEtat">Bornes Disponibles</div>
+						<div class="valeur">
+							<div class="icone" id="bornesDisponibles">-</div>
+						</div>
+						<div class="textEtat">Suspendue</div>
+						<div class="valeur">
+							<div class="icone" id="suspendue">-</div>
+						</div>
+						<div class="textEtat">Velos Indisponibles</div>
+						<div class="valeur">
+							<div class="icone" id="veloIndisponibles">-</div>
+						</div>
+						<div class="textEtat">Hors Service</div>
+						<div class="valeur">
+							<div class="icone" id="horsService">-</div>
+						</div>
+						<div class="textEtat">Bornes Indisponibles</div>
+						<div class="valeur">
+							<div class="icone" id="borneIndisponibles">-</div>
+						</div>
+					</div>
 				</div>
 			</div>
+			<div id="map"></div>
 		</div>
-	</div>
-	<div id="map"></div>
-	<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAHgNyyT80qbB1v--aaZiz2StbDfHmUUMo"></script>
-	<script src="main.js"></script>
+		
 	<div id="ContenuListeStation">
 		<p> abcd </p>
 	</div>
