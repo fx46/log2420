@@ -151,3 +151,11 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.bubble{
+	color: white;
+	border-radius: 200px;
+	background-color: gray;
+	padding: 2px 10px;
+	display: inline;
+}
