@@ -2,7 +2,6 @@
 <!-- saved from url=(0044)http://www.crct.polymtl.ca/fact/equiexpl.htm -->
 
 <head>
-	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<script src="jquery-1.12.4.js"></script>	
@@ -21,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head> 
 
-<HTML lang="fr-CA"><HEAD><TITLE>Bixi MontrÃ©al</TITLE>
+<HTML lang="fr-CA"><HEAD><TITLE>Bixi Montréal</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=windows-1252">
 <META content="MSHTML 6.00.2715.400" name=GENERATOR></HEAD>
 <META http-equiv=Refresh content=100>
@@ -31,27 +30,28 @@
 <BODY>
 	<div id="header">
 		<ul>
-			<li><a id="Velo" href="#">VÃ©lo MontrÃ©al</a></li>
+			<li><a id="Velo" href="#">Vélo Montréal</a></li>
 			<li><a id="Accueil" href="#"> Accueil </a></li>
 			<li id="Globe"><a><i class="material-icons">public</i></a></li>
 		</ul>
 	</div>
   
 	<div id="selection">
-		<div class="button-Select select Carte" >Carte des stations</div>
-		<div class="button-Select none-select Liste" >Liste des stations</div>
-		<div id="autocomplete">
+		<div id="boutons">
+			<div class="button-Select select Carte" >Carte des stations</div>
+			<div class="button-Select none-select Liste" >Liste des stations</div>
+		</div>
+		<div id="recherche">
 			<label for="tags">Recherche: </label>
 			<input id="inputElem">
+			<h2>Localisation:</h2>
+			<div id="Localisation">Veuillez entrer le nom d'une station</div>
 		</div>
-  
-		<h2>Localisation:</h2>
-		<hr width="200px" align="left"> 
-		<div id="Localisation">Veuillez entrer le nom d'une station</div>
+		<div id="etatStation">
+			<div id="affichageEtatStation">État de la station de vélos</div>
+		</div>
 	</div>
-
-
-
+	
 	<div id="ContenuCarteStation">
 		<div id="map"></div>
 		<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAHgNyyT80qbB1v--aaZiz2StbDfHmUUMo"></script>

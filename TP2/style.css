@@ -13,12 +13,15 @@ html, body {
 
 h2{
 	margin:0px;
+	width: 25%;
+	border-bottom: 1px solid black;
 }
 
 a{
 	text-decoration: none;
 	color:white;
 }
+
 a:hover{
 	background-color: rgb(4,80,144);
 }
@@ -76,12 +79,25 @@ a:hover{
 .button-Select{
 	display: inline;
 	cursor: pointer;
-	padding: 6px;
+	padding: 5px;
 	border-radius: 4px 4px 0px 0px;
 }
 
-#autocomplete {
+#recherche {
 	padding-top: 1%;
+	width: 50%;
+	float:left;
+}
+
+#etatStation{
+	padding-top: 1%;
+	width: 50%;
+	float:right;
+}
+
+#affichageEtatStation{
+	border-bottom: 10px solid rgb(6,109,194);
+	width: 80%;
 }
 
 .select{
@@ -93,6 +109,7 @@ a:hover{
 .none-select{
 	border: solid GhostWhite 1px;
 	color: #066DC2;
+	background-color: GhostWhite;
 }
 
 #inputElem{
@@ -107,4 +124,9 @@ p{
 #map {
   height: 60%;
   margin: 10%;
+}
+
+#boutons{
+	border-bottom: 1px solid black;
+	height: 27px;
 }
