@@ -64,14 +64,42 @@ function initAutocomplete(suggests) {
 					document.getElementById('bornesDisponibles').innerHTML = jsonFile.stations[i].da;
 					document.getElementById('borneIndisponibles').innerHTML = jsonFile.stations[i].dx;
 					
-					if(jsonFile.stations[i].su) document.getElementById('suspendue').innerHTML = "Oui";
-					else document.getElementById('suspendue').innerHTML = "Non";
+					if(jsonFile.stations[i].ba == 0) 
+						document.getElementById('velosDisponibles').style.backgroundColor = "red";
+					else	
+						document.getElementById('velosDisponibles').style.backgroundColor = "#4CAF50";
 					
-					if(jsonFile.stations[i].m) document.getElementById('horsService').innerHTML = "Oui";
-					else document.getElementById('horsService').innerHTML = "Non";
+					if(jsonFile.stations[i].da == 0) 
+						document.getElementById('bornesDisponibles').style.backgroundColor = "red";
+					else	
+						document.getElementById('bornesDisponibles').style.backgroundColor = "#4CAF50";
 					
-					if(jsonFile.stations[i].b) document.getElementById('bloquee').innerHTML = "Oui";
-					else document.getElementById('bloquee').innerHTML = "Non";
+					if(jsonFile.stations[i].su){
+						document.getElementById('suspendue').innerHTML = "Oui";
+						document.getElementById('suspendue').style.backgroundColor = "red";
+					}
+					else{
+						document.getElementById('suspendue').innerHTML = "Non";
+						document.getElementById('suspendue').style.backgroundColor = "#4CAF50";
+					}
+					
+					if(jsonFile.stations[i].m){
+						document.getElementById('horsService').innerHTML = "Oui";
+						document.getElementById('horsService').style.backgroundColor = "red";
+					}
+					else{
+						document.getElementById('horsService').innerHTML = "Non";
+						document.getElementById('horsService').style.backgroundColor = "#4CAF50";
+					}
+					
+					if(jsonFile.stations[i].b){
+						document.getElementById('bloquee').innerHTML = "Oui";
+						document.getElementById('bloquee').style.backgroundColor = "red";
+					}
+					else{
+						document.getElementById('bloquee').innerHTML = "Non";
+						document.getElementById('bloquee').style.backgroundColor = "#4CAF50";
+					}
 					
 					break;
 				}
