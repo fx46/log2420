@@ -7,8 +7,7 @@ $(document).ready(function(){
 	
 	var map;
 	initMap();
-	
-	$('#tableau2').DataTable({});
+	initDataTable(jsonFile);
 })
 
 function getJson(){
@@ -25,6 +24,10 @@ function getJson(){
 	};
 	xmlhttp.open("GET", "https://secure.bixi.com/data/stations.json", true);
 	xmlhttp.send();
+}
+
+function initDataTable(jsonFile){
+	$('#tableau2').DataTable({data: jsonFile.stations, columns: [{ title: "Name" },{ title: "Position" },{ title: "Office" },{ title: "Extn." },{ title: "Start date" },{ title: "Salary" }]});
 }
 
 function changerOnglet(){
