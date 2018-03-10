@@ -7,6 +7,8 @@ $(document).ready(function(){
 	
 	var map;
 	initMap();
+	
+	$('#tableau2').DataTable();
 });
 
 function getJson(){

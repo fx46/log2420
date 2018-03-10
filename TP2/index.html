@@ -3,28 +3,19 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<script src="jquery-1.12.4.js"></script>	
-	<!--<script src="jquery-ui-1.12.1/jquery-ui.js"></script>-->
-	
-	<script		src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
-				integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
-				crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css">
+	<link href="icon.css" rel="stylesheet">
+	<link rel="stylesheet" href="dataTables.css">
+	<script src="jquery-1.12.4.js"></script>		
 	<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAHgNyyT80qbB1v--aaZiz2StbDfHmUUMo"></script>		  
 	<script src="main.js"></script>
-	<!-- Link sheet Pour icon-->
-
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="dataTables.js"></script>
 </head> 
 
 <HTML lang="fr-CA"><HEAD><TITLE>Bixi Montréal</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=windows-1252">
 <META content="MSHTML 6.00.2715.400" name=GENERATOR></HEAD>
 <META http-equiv=Refresh content=100>
-
-
 
 <BODY>
 	<div id="header">
@@ -100,46 +91,16 @@
 		
 	<div id="ContenuListeStation">
 		<table id="tableau2">
-			<tr>
-				<td>Id Station</td>
-				<td>
-					<div id="idStation" class="bubble">-</div>
-				</td>
-				<td>Vélos disponibles</td>
-				<td>
-					<div id="velosDisponibles" class="bubble">-</div>
-				</td>
-			 </tr>
-			 <tr>
-				<td>Bloquée</td>
-				<td>
-					<div id="bloquee" class="bubble">-</div>
-				</td>
-				<td>Bornes disponibles</td>
-				<td>
-					<div id="bornesDisponibles" class="bubble">-</div>
-				</td>
-			 </tr>
-			 <tr>
-				<td>Suspendue</td>
-				<td>
-					<div id="suspendue" class="bubble">-</div>
-				</td>
-				<td>Vélos indisponibles</td>
-				<td>
-					<div id="veloIndisponibles" class="bubble">-</div>
-				</td>
-			 </tr>
-			 <tr>
-				<td>Hors service</td>
-				<td>
-					<div id="horsService" class="bubble">-</div>
-				</td>
-				<td>Bornes indisponibles</td>
-				<td>
-					<div id="borneIndisponibles" class="bubble">-</div>
-				</td>
-			 </tr>
+		    <thead>
+				<tr>
+					<th>ID</th>
+					<th>Nom Station</th>
+					<th>Vélos disponibles</th>
+					<th>Bornes disponibles</th>
+					<th>État bloqué</th>
+					<th>État suspendu</th>
+				</tr>
+			</thead>
 		</table>
 	</div>
 	
