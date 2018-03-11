@@ -73,7 +73,7 @@ function initAutocomplete(suggests) {
 			for (var i = 0; i < jsonFile.stations.length; i++) {	
 				//Cherche la station dans le JSON par son nom
 				if (ui.item.label == jsonFile.stations[i].s) {
-					changeMapCenter(jsonFile.stations[i].la, jsonFile.stations[i].lo);
+					changeMapCenter(jsonFile.stations[i].la, jsonFile.stations[i].lo, jsonFile.stations[i].s);
 					
 					document.getElementById('idStation').innerHTML = jsonFile.stations[i].id;
 					document.getElementById('velosDisponibles').innerHTML = jsonFile.stations[i].ba;
@@ -132,12 +132,15 @@ function initMap() {
 	});
 }
 
-function changeMapCenter(lat, lng) {
+function changeMapCenter(lat, lng, name) {
+	initMap();
 	var myLatLng = {lat, lng};
+	var name = name;
 	map.setCenter(new google.maps.LatLng(myLatLng));
     map.setZoom(16);
 	var marker = new google.maps.Marker({
 		position: myLatLng,
         map: map,
+        title: name,
     });
 }
