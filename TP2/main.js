@@ -5,6 +5,7 @@ $(document).ready(function(){
 	getJsonAndSetData();
 	
 	$("#ContenuListeStation").css("display", "none");
+	pageAcceuil();
 	changerOnglet();
 	
 	initMap();
@@ -41,7 +42,18 @@ function initDataTable(){
 		});
 	columns.adjust();
 }
-
+function pageAcceuil(){
+	$("#Velo,#Accueil").bind("click", function(){
+	var carte = $(".Carte");
+	var liste = $(".Liste");
+	carte.addClass("select"); // ne fait pas cette ligne a savoir pourquoi ?
+	carte.removeClass("non-select");
+	liste.addClass("non-select");
+	liste.removeClass("select");
+	$("#ContenuCarteStation").css("display", "inline");
+	$("#ContenuListeStation").css("display", "none");
+	})
+}
 function changerOnglet(){
 	$(".select,.none-select").bind("click", function() {
 		var noneSelect = $(".select");
