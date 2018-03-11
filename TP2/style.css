@@ -102,7 +102,7 @@ a:hover{
 
 #affichageEtatStation{
 	border-bottom: 10px solid rgb(6,109,194);
-	width: 100%;
+	width: 90%;
 	font-size: 120%;
 }
 
@@ -120,8 +120,8 @@ a:hover{
 
 #inputElem{
 	display: block;
-	width: 42%;
-	height:5%;
+	width: 60%;
+	height:25px;
 	font-size:100%;
 }
 
@@ -137,15 +137,31 @@ a:hover{
 
 #tableau1{
     border-collapse: collapse;
+    width: 90%;
+	margin-bottom: 20px;
+}
+
+#tableau2_wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tableau2{
     width: 100%;
 	margin-bottom: 20px;
 }
 
-td, th {
+#tableau1 td, #tableau1 th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 10px;
 	width: 25%;
+}
+
+#tableau2 td, #tableau2 th {
+    border: 1px solid #dddddd;
+    text-align: left;
 }
 
 tr:nth-child(even) {

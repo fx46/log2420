@@ -1,16 +1,16 @@
+var jsonFile;
+var map;
+
 $(document).ready(function(){
-	var jsonFile;
-	getJson();
+	getJsonAndSetData();
 	
 	$("#ContenuListeStation").css("display", "none");
 	changerOnglet();
 	
-	var map;
 	initMap();
-	initDataTable(jsonFile);
 })
 
-function getJson(){
+function getJsonAndSetData(){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -19,15 +19,27 @@ function getJson(){
 			for(var i = 0; i < jsonFile.stations.length; i++){
 				suggests[i] = jsonFile.stations[i].s;
 			}
-			initAutocomplete(suggests, jsonFile);
+			initAutocomplete(suggests);
+			initDataTable();
 		}
 	};
 	xmlhttp.open("GET", "https://secure.bixi.com/data/stations.json", true);
 	xmlhttp.send();
 }
 
-function initDataTable(jsonFile){
-	$('#tableau2').DataTable({data: jsonFile.stations, columns: [{ title: "Name" },{ title: "Position" },{ title: "Office" },{ title: "Extn." },{ title: "Start date" },{ title: "Salary" }]});
+function initDataTable(){
+	$('#tableau2').DataTable({
+			data: jsonFile.stations, 
+			columns: [
+				{"data": "id"},
+				{"data": "s"},
+				{"data": "ba"},
+				{"data": "da"},
+				{"data": "b"},
+				{"data": "su"}
+			]
+		});
+	columns.adjust();
 }
 
 function changerOnglet(){
