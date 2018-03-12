@@ -1,16 +1,22 @@
 var jsonFile;
 var map;
 
+/*********************************************************************
+ *  Quand le document est prêt, cette fonction est active.
+ *  Elle appelle toutes les autres fonction pour charger la page.
+ *********************************************************************/
 $(document).ready(function(){
 	getJsonAndSetData();
-	
 	$("#ContenuListeStation").css("display", "none");
 	pageAcceuil();
 	changerOnglet();
-	
 	initMap();
 })
 
+/*********************************************************************
+ *  Fonction qui fait une demande d'information (fichier .json).
+ * 	Elle appelle ensuite les fonctions qui ont besoins de ces informations.
+ *********************************************************************/
 function getJsonAndSetData(){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -28,6 +34,9 @@ function getJsonAndSetData(){
 	xmlhttp.send();
 }
 
+/*********************************************************************
+ *  Fonction qui initialise la dataTable.
+ *********************************************************************/
 function initDataTable(){
 	$('#tableau2').DataTable({
 		data: jsonFile.stations, 
@@ -65,11 +74,14 @@ function initDataTable(){
 	columns.adjust();
 }
 
+/*********************************************************************
+ *  Fonction qui s'occupe de l'affichage de la page d'acceuil
+ *********************************************************************/
 function pageAcceuil(){
 	$("#Velo,#Accueil").bind("click", function(){
 	var carte = $(".Carte");
 	var liste = $(".Liste");
-	carte.addClass("select"); // ne fait pas cette ligne a savoir pourquoi ?
+	carte.addClass("select");
 	carte.removeClass("non-select");
 	liste.addClass("non-select");
 	liste.removeClass("select");
@@ -77,6 +89,11 @@ function pageAcceuil(){
 	$("#ContenuListeStation").css("display", "none");
 	})
 }
+
+/*********************************************************************
+ *  Fonction qui gère le changement d'onglet quand un des boutons 
+ 8	est cliqué.
+ *********************************************************************/
 function changerOnglet(){
 	$(".select,.none-select").bind("click", function() {
 		var noneSelect = $(".select");
@@ -97,6 +114,10 @@ function changerOnglet(){
 	})	
 }
 
+/*********************************************************************
+ *  Fonction qui initialise les suggestions (autocompletion) quand 
+ *	on écrit des lettres dans la boite de recherche. 
+ *********************************************************************/
 function initAutocomplete(suggests) {
 	$('#inputElem').autocomplete({
         source: function( request, response ) {
@@ -160,6 +181,9 @@ function initAutocomplete(suggests) {
 	});
 }
 
+/*********************************************************************
+ *  Fonction qui initialise la map (Google Map).
+ *********************************************************************/
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 45.51345, lng: -73.650674},
@@ -167,6 +191,11 @@ function initMap() {
 	});
 }
 
+/*********************************************************************
+ *  Fonction qui change la position de centre sur la map, selon
+ * 	une lattitude et longitude. Elle Place ensuite un marqueur 
+ *	à cette position.
+ *********************************************************************/
 function changeMapCenter(lat, lng, name) {
 	initMap();
 	var myLatLng = {lat, lng};
