@@ -27,6 +27,13 @@ function receiveMessage(event){
 		document.getElementById("test").innerHTML = "Connected!";
 	}
 	else{
-		$('#messages').append('<div>' + JSON.parse(event.data).data + '</div>');
+		$('#messages').append(
+			'<div>' 
+			+ JSON.parse(event.data).sender 
+			+ ": " 
+			+ JSON.parse(event.data).data 
+			+ "\t"
+			+ JSON.parse(event.data).timestamp 
+			+ '</div>');
 	}
 }
