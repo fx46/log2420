@@ -7,6 +7,7 @@
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="jquery-ui.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<script src="jquery-1.12.4.js"></script>		
 	<script	src="jquery-ui.js"></script>		  
@@ -19,7 +20,17 @@
 <HTML lang="fr-CA"><HEAD><TITLE>Poly Chat</TITLE>
 
 <BODY>
-	
+	<div id="banniere">
+		<ul>
+			<li id="Poly"> Poly </li>
+			<li><span class="fa-stack fa-lg"> 
+				<i class="fa fa-group fa-stack-1x" style="font-size:105%"></i>
+				<i class="fa fa-group fa-stack-1x" style="color:white"></i>
+				</span> 
+			</li>
+			<li id="Chat"> Chat </li>
+		</ul>
+	</div>
 	<div id="test"></div>
 	Your message: <input type="text" id="message">
 	<input type="submit" value="Submit" onclick="sendMessage();">

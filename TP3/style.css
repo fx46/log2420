@@ -6,3 +6,24 @@ html, body {
 	font-family: Calibri;
 	font-size: 100%;
 }
+
+#banniere > ul{
+	line-height: 50px;
+	margin:0px;
+	padding: 0px;
+	list-style: none;
+	overflow: hidden;
+	background-color: gray;
+}
+
+#banniere > ul > li{
+	float:left;
+}
+
+#Poly{
+	color: #FF9900;
+}
+
+#Chat{
+	color: #0099FF;
+}
