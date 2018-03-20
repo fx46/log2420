@@ -46,6 +46,30 @@ html, body {
 	text-shadow: none;
 }
 
+#messages {
+	width: 1000px;
+	background: lightgray;
+	margin: 25px auto;
+	padding-bottom:25px;
+}
+
+#composeMessage {
+	padding: 25px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#messageHistory {
+	width: 800px;
+	height:400px;
+	margin: 25px auto;
+	background-color: GhostWhite;
+}
+
+.message {
+	margin-left: 25px;
+}
+
 a:visited {
 	color: black;
 }

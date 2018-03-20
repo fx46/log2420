@@ -6,7 +6,7 @@ var socketClient;
  *  Elle appelle toutes les autres fonction pour charger la page.
  *********************************************************************/
 $(document).ready(function(){
-	document.getElementById("test").innerHTML = "Connecting...";
+	document.getElementById("status").innerHTML = "Status: Connecting...";
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=FX");
 	
 	socketClient.onmessage = function(event){
@@ -24,16 +24,14 @@ function receiveMessage(event){
 	console.log(JSON.parse(event.data));
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
 		channel = JSON.parse(event.data).data[0].id;
-		document.getElementById("test").innerHTML = "Connected!";
+		document.getElementById("status").innerHTML = "Status: Connected!";
 	}
 	else{
-		$('#messages').append(
-			'<div>' 
+		$('#messageHistory').append(
+			'<div class="message">' 
 			+ JSON.parse(event.data).sender 
-			+ ": " 
-			+ JSON.parse(event.data).data 
-			+ "\t"
-			+ JSON.parse(event.data).timestamp 
+			+ ": \t"
+			+ JSON.parse(event.data).data
 			+ '</div>');
 	}
 }
