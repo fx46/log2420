@@ -7,6 +7,11 @@ html, body {
 	font-size: 100%;
 }
 
+#contour{
+	border: 4px solid #DEDEDE;
+	border-top: none;
+}
+
 #banniere {
 	height: 100px;
 	background-color: lightgray;
@@ -35,7 +40,6 @@ html, body {
 }
 
 #spacerTitre {
-	display: flex;
 	flex-grow: 1;
 }
 
@@ -46,10 +50,30 @@ html, body {
 	text-shadow: none;
 }
 
+#banniere2{
+	height: 11%;
+	color: white;
+	background-color: #008999;
+	display: flex;
+	flex-flow: row nowrap;
+	padding-right: 50px;
+	padding-left: 50px;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+#groupeName{
+	font-size: 150%;
+}
+
+#spacerB2{
+	flex-grow: 1;
+}
+
 #chatPannel {
 	display: flex;
-	margin: 25px auto;
-	width: 50%;
+	margin: auto;
+	width: 100%;
 	border: 3px solid lightgray;
 }
 
