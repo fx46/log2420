@@ -23,13 +23,14 @@ $(function sendMessage() {
 	});
 });
 
-function receiveMessage(event){
+function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
 		channel = JSON.parse(event.data).data[0].id;
 		document.getElementById("status").innerHTML = "Status: Connected!";
 	}
-	else{
+	
+	else {
 		var message = '<div class="message">' 
 					+ JSON.parse(event.data).sender 
 					+ ": \t"
@@ -40,4 +41,8 @@ function receiveMessage(event){
 					+ '</div>';
 		$('#messageHistory').append(message);
 	}
+	
+	$('#messageHistory').stop ().animate ({
+		scrollTop: $('#messageHistory')[0].scrollHeight
+	});
 }
