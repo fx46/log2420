@@ -53,21 +53,42 @@ html, body {
 	padding-bottom:25px;
 }
 
-#composeMessage {
-	padding: 25px;
-	display: flex;
-	justify-content: space-between;
-}
-
-#messageHistory {
-	width: 800px;
-	height:400px;
-	margin: 25px auto;
+#chatBox {
+	width: 400px;
+	margin: 0 auto;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+	overflow: hidden;
 	background-color: GhostWhite;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#messageHistory {
+  height: 500px;
+  overflow: auto;
+  direction: rtl;
+}
+
 .message {
-	margin-left: 25px;
+	text-align:left;
+	border-bottom: solid 1px lightgray;
+	padding: 25px;
+}
+
+.date {
+	color: lightgray;
+	float: right;
+}
+
+#messageForm input {
+	font-size: 115%;
+	width: 100%;
+	border: none;
+	padding: 10px;
 }
 
 a:visited {

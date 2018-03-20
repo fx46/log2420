@@ -14,11 +14,14 @@ $(document).ready(function(){
 	}	
 })
 
-function sendMessage(){
-	var messageBox = document.getElementById('message');
-	var message = new Message("onMessage", channel, messageBox.value, null, null);
-	socketClient.send(JSON.stringify(message));
-}
+$(function sendMessage() {
+	$('form').on('submit', function (event) {
+		event.preventDefault();
+		var messageBox = document.getElementById('message');
+		var message = new Message("onMessage", channel, messageBox.value, null, null);
+		socketClient.send(JSON.stringify(message));
+	});
+});
 
 function receiveMessage(event){
 	console.log(JSON.parse(event.data));
@@ -27,11 +30,14 @@ function receiveMessage(event){
 		document.getElementById("status").innerHTML = "Status: Connected!";
 	}
 	else{
-		$('#messageHistory').append(
-			'<div class="message">' 
-			+ JSON.parse(event.data).sender 
-			+ ": \t"
-			+ JSON.parse(event.data).data
-			+ '</div>');
+		var message = '<div class="message">' 
+					+ JSON.parse(event.data).sender 
+					+ ": \t"
+					+ JSON.parse(event.data).data
+					+ '<div class=date>'
+					+ Date().toString().substring(0,25);
+					+ '</div>'
+					+ '</div>';
+		$('#messageHistory').append(message);
 	}
 }
