@@ -39,7 +39,7 @@ html, body {
 	font-size:250% !important; 
 }
 
-#spacerTitre {
+.spacer {
 	flex-grow: 1;
 }
 
@@ -64,17 +64,20 @@ html, body {
 
 #groupeName{
 	font-size: 150%;
+	width: 20%;
+}
+#GroupList{
+	display: flex;
 }
 
-#spacerB2{
-	flex-grow: 1;
+#GroupelistOption{
+	display: flex;
 }
 
 #chatPannel {
 	display: flex;
 	margin: auto;
 	width: 100%;
-	border: 3px solid lightgray;
 }
 
 #messages {
