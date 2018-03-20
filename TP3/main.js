@@ -20,7 +20,7 @@ $(function sendMessage() {
 		var messageBox = document.getElementById('message');
 		var message = new Message("onMessage", channel, messageBox.value, null, null);
 		socketClient.send(JSON.stringify(message));
-		
+
 		//clear message entry after send
 		messageBox.value = "";
 	});
@@ -30,6 +30,12 @@ function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
 		channel = JSON.parse(event.data).data[0].id;
+		for(var i = 0; i < JSON.parse(event.data).data.length; i++) {
+			var channelFromList = '<div class="channel">' 
+								+ JSON.parse(event.data).data[i].name
+								+ '</div>';
+			$('#channelsWrapper').append(channelFromList);
+		}
 		document.getElementById("status").innerHTML = "Status: Connected!";
 	}
 	

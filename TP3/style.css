@@ -100,8 +100,24 @@ html, body {
 #channels {
 	width: 400px;
 	background: lightgray;
-	margin: 25px;
+	margin: auto 25px auto auto;
 	padding-bottom:25px;
+}
+
+#channelsWrapper {
+	margin: 25px;
+	height: 500px;
+	overflow: auto;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+	overflow: hidden;
+	background-color: GhostWhite;
+}
+
+.channel {
+	background-color: darkgray;
+	width: 50%;
+	margin: 25px auto;
 }
 
 a:visited {
