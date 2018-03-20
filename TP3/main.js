@@ -20,6 +20,9 @@ $(function sendMessage() {
 		var messageBox = document.getElementById('message');
 		var message = new Message("onMessage", channel, messageBox.value, null, null);
 		socketClient.send(JSON.stringify(message));
+		
+		//clear message entry after send
+		messageBox.value = "";
 	});
 });
 
@@ -42,6 +45,7 @@ function receiveMessage(event) {
 		$('#messageHistory').append(message);
 	}
 	
+	//scroll to bottom
 	$('#messageHistory').stop ().animate ({
 		scrollTop: $('#messageHistory')[0].scrollHeight
 	});
