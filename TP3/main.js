@@ -1,5 +1,6 @@
 var channel;
 var socketClient;
+//TODO: creer tableau de channels
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
@@ -35,6 +36,12 @@ function receiveMessage(event) {
 								+ JSON.parse(event.data).data[i].name
 								+ '</div>';
 			$('#channelsWrapper').append(channelFromList);
+			
+			//update affichage du channel courrant
+			if (JSON.parse(event.data).data[i].joinStatus) {
+				document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
+			}
+			//TODO: ajouter le channel au tableau de channels
 		}
 		document.getElementById("status").innerHTML = "Status: Connected!";
 	}
@@ -56,3 +63,14 @@ function receiveMessage(event) {
 		scrollTop: $('#messageHistory')[0].scrollHeight
 	});
 }
+
+function joinChannel(adresse) {
+	var message = new Message("onJoinChannel ", adresse, null, null, null);
+	socketClient.send(JSON.stringify(message));
+}
+
+var channelButton = document.getElementsByClassName("channel")[0]
+document.getElementsByClassName("channel")[0].onclick = function() {
+	alert("test");
+	//TODO: se servir du tableau de channels pour obtenir l'adresse
+};
