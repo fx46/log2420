@@ -97,6 +97,10 @@ html, body {
 	padding: 10px;
 }
 
+#messageForm button {
+	display: none;
+}
+
 #channels {
 	width: 400px;
 	background: lightgray;
