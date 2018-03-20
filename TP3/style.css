@@ -8,12 +8,15 @@ html, body {
 }
 
 #banniere > ul{
-	line-height: 50px;
+	line-height: 250%;
 	margin:0px;
-	padding: 0px;
+	padding-right: 1%;
+	padding-top: 1%;
+	padding-bottom: 2%;
+	padding-left: 1%;
 	list-style: none;
 	overflow: hidden;
-	background-color: gray;
+	background-color: lightgray;
 }
 
 #banniere > ul > li{
@@ -21,9 +24,33 @@ html, body {
 }
 
 #Poly{
+	font-size:300%;
 	color: #FF9900;
 }
 
 #Chat{
+	font-size: 300%;
 	color: #0099FF;
+}
+
+.icone{
+	text-shadow: 1px 1px 1px #000000
+}
+
+#spacerTitre{
+	display: flex;
+	flex-grow: 1;
+}
+#UserNameTitre{
+	font-size: 70%;
+	line-height: 2px;
+	color:#009933;
+	text-shadow: none;
+
+}
+a:visited{
+	color: black;
+}
+a:hover{
+	color:#DCDCDC;
 }
