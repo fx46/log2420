@@ -1,6 +1,7 @@
 var channel;
 var socketClient;
-//TODO: creer tableau de channels
+var channels = [];
+var currentChannel;
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
@@ -28,22 +29,12 @@ $(function sendMessage() {
 });
 
 function receiveMessage(event) {
+	
 	console.log(JSON.parse(event.data));
+	
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
 		channel = JSON.parse(event.data).data[0].id;
-		for(var i = 0; i < JSON.parse(event.data).data.length; i++) {
-			var channelFromList = '<div class="channel">' 
-								+ JSON.parse(event.data).data[i].name
-								+ '</div>';
-			$('#channelsWrapper').append(channelFromList);
-			
-			//update affichage du channel courrant
-			if (JSON.parse(event.data).data[i].joinStatus) {
-				document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
-			}
-			//TODO: ajouter le channel au tableau de channels
-		}
-		document.getElementById("status").innerHTML = "Status: Connected!";
+		updateChannelsList(event);
 	}
 	
 	else {
@@ -64,13 +55,33 @@ function receiveMessage(event) {
 	});
 }
 
-function joinChannel(adresse) {
-	var message = new Message("onJoinChannel ", adresse, null, null, null);
+function changeChannel(i) {
+	//leave old channel
+	var message = new Message("onLeaveChannel", currentChannel, null, null, null);
+	socketClient.send(JSON.stringify(message));
+
+	//join new channel
+	message = new Message("onJoinChannel", channels[i], null, null, null);
 	socketClient.send(JSON.stringify(message));
 }
 
-var channelButton = document.getElementsByClassName("channel")[0]
-document.getElementsByClassName("channel")[0].onclick = function() {
-	alert("test");
-	//TODO: se servir du tableau de channels pour obtenir l'adresse
-};
+function updateChannelsList(event) {
+	//delete old channels list
+	var el = document.getElementById('channelsWrapper');
+	while ( el.firstChild ) el.removeChild( el.firstChild );
+	
+	//add channels to channels list
+	for(var i = 0; i < JSON.parse(event.data).data.length; i++) {
+		var channelFromList = '<div class="channel" onclick="changeChannel(' + i + ')">' 
+							+ JSON.parse(event.data).data[i].name + '</div>';
+		$('#channelsWrapper').append(channelFromList);
+		
+		//update affichage du channel courrant
+		if (JSON.parse(event.data).data[i].joinStatus) {
+			currentChannel = JSON.parse(event.data).data[i].id;
+			document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
+		}
+		channels.push(JSON.parse(event.data).data[i].id);
+	}
+	document.getElementById("status").innerHTML = "Status: Connected!";
+}
