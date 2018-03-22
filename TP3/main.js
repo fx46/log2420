@@ -1,4 +1,3 @@
-var channel;
 var socketClient;
 var channels = [];
 var currentChannel;
@@ -20,7 +19,7 @@ $(function sendMessage() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
 		var messageBox = document.getElementById('message');
-		var message = new Message("onMessage", channel, messageBox.value, null, null);
+		var message = new Message("onMessage", currentChannel, messageBox.value, null, null);
 		socketClient.send(JSON.stringify(message));
 
 		//clear message entry after send
@@ -33,7 +32,7 @@ function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
-		channel = JSON.parse(event.data).data[0].id;
+		currentChannel = JSON.parse(event.data).data[0].id;
 		updateChannelsList(event);
 	}
 	
@@ -61,7 +60,8 @@ function changeChannel(i) {
 	socketClient.send(JSON.stringify(message));
 
 	//join new channel
-	message = new Message("onJoinChannel", channels[i], null, null, null);
+	currentChannel = channels[i];
+	message = new Message("onJoinChannel", currentChannel, null, null, null);
 	socketClient.send(JSON.stringify(message));
 }
 
