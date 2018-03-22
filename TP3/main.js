@@ -32,7 +32,6 @@ function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
-		currentChannel = JSON.parse(event.data).data[0].id;
 		updateChannelsList(event);
 	}
 	
@@ -55,14 +54,20 @@ function receiveMessage(event) {
 }
 
 function changeChannel(i) {
-	//leave old channel
-	var message = new Message("onLeaveChannel", currentChannel, null, null, null);
-	socketClient.send(JSON.stringify(message));
+	if(currentChannel!= channels[i]){
+		//leave old channel
+		var message = new Message("onLeaveChannel", currentChannel, null, null, null);
+		socketClient.send(JSON.stringify(message));
+		
+		//delete old messages
+		var el = document.getElementById('messageHistory');
+		while ( el.firstChild ) el.removeChild( el.firstChild );
 
-	//join new channel
-	currentChannel = channels[i];
-	message = new Message("onJoinChannel", currentChannel, null, null, null);
-	socketClient.send(JSON.stringify(message));
+		//join new channel
+		currentChannel = channels[i];
+		message = new Message("onJoinChannel", currentChannel, null, null, null);
+		socketClient.send(JSON.stringify(message));
+	}
 }
 
 function updateChannelsList(event) {
@@ -79,6 +84,7 @@ function updateChannelsList(event) {
 		//update affichage du channel courrant
 		if (JSON.parse(event.data).data[i].joinStatus) {
 			currentChannel = JSON.parse(event.data).data[i].id;
+			console.log("lel");
 			document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
 		}
 		channels.push(JSON.parse(event.data).data[i].id);
