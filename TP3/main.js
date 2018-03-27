@@ -1,4 +1,3 @@
-var defaultChannel;
 var socketClient;
 var channels = [];
 var currentChannel;
@@ -20,7 +19,7 @@ $(function sendMessage() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
 		var messageBox = document.getElementById('message');
-		var message = new Message("onMessage", defaultChannel, messageBox.value, null, null);
+		var message = new Message("onMessage", currentChannel, messageBox.value, null, null);
 		socketClient.send(JSON.stringify(message));
 
 		//clear message entry after send
@@ -33,7 +32,6 @@ function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	
 	if (JSON.parse(event.data).eventType == "updateChannelsList"){
-		defaultChannel = JSON.parse(event.data).data[0].id;
 		updateChannelsList(event);
 	}
 	
@@ -56,17 +54,19 @@ function receiveMessage(event) {
 }
 
 function changeChannel(i) {
-	//leave old channel
-	var message = new Message("onLeaveChannel", currentChannel, null, null, null);
-	socketClient.send(JSON.stringify(message));
-
-	//delete old messages
-	var el = document.getElementById('messageHistory');
-	while ( el.firstChild ) el.removeChild( el.firstChild );
-	
-	//join new channel
-	message = new Message("onJoinChannel", channels[i], null, null, null);
-	socketClient.send(JSON.stringify(message));
+	if(currentChannel != channels[i]){
+		//leave old channel
+		var message = new Message("onLeaveChannel", currentChannel, null, null, null);
+		socketClient.send(JSON.stringify(message));
+		
+		//delete old messages
+		var el = document.getElementById('messageHistory');
+		while ( el.firstChild ) el.removeChild( el.firstChild );
+		
+		//join new channel
+		message = new Message("onJoinChannel", channels[i], null, null, null);
+		socketClient.send(JSON.stringify(message));
+	}
 }
 
 function updateChannelsList(event) {
@@ -85,7 +85,9 @@ function updateChannelsList(event) {
 			currentChannel = JSON.parse(event.data).data[i].id;
 			document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
 		}
+		
 		channels.push(JSON.parse(event.data).data[i].id);
 	}
+	
 	document.getElementById("status").innerHTML = "Status: Connected!";
 }
