@@ -10,6 +10,7 @@ var username = "FX";
 $(document).ready(function(){
 	document.getElementById("status").innerHTML = "Status: Connecting...";
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
+	document.getElementById("UserNameTitre").innerHTML = username;
 	
 	socketClient.onmessage = function(event){
 		receiveMessage(event);
