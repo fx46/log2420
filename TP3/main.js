@@ -1,6 +1,7 @@
 var socketClient;
 var channels = [];
 var currentChannel;
+var username = "FX";
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
@@ -8,7 +9,7 @@ var currentChannel;
  *********************************************************************/
 $(document).ready(function(){
 	document.getElementById("status").innerHTML = "Status: Connecting...";
-	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=FX");
+	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
 	
 	socketClient.onmessage = function(event){
 		receiveMessage(event);
@@ -28,29 +29,51 @@ $(function sendMessage() {
 });
 
 function receiveMessage(event) {
-	
 	console.log(JSON.parse(event.data));
 	
-	if (JSON.parse(event.data).eventType == "updateChannelsList"){
+	if (JSON.parse(event.data).eventType == "updateChannelsList") {
 		updateChannelsList(event);
 	}
 	
-	else {
-		var message = '<div class="message">' 
-					+ JSON.parse(event.data).sender 
-					+ ": \t"
-					+ JSON.parse(event.data).data
-					+ '<div class=date>'
-					+ Date().toString().substring(0,25);
-					+ '</div>'
-					+ '</div>';
-		$('#messageHistory').append(message);
+	else if ( JSON.parse(event.data).sender == username ) {
+		showSentMessage(event);
 	}
 	
+	else {
+		showReceivedMessage(event) 
+	}
+
 	//scroll to bottom
 	$('#messageHistory').stop ().animate ({
 		scrollTop: $('#messageHistory')[0].scrollHeight
 	});
+}
+
+function showReceivedMessage(event) {
+	var message = '<div class="messageReceived">' 
+				+ '<div class="sender">'
+				+ JSON.parse(event.data).sender 
+				+ '</div>'
+				+ '<div class="message bubbleReceived">'
+				+ JSON.parse(event.data).data
+				+ '</div>'
+				+ '<div class=date>'
+				+ Date().toString().substring(0,25);
+				+ '</div>'
+				+ '</div>';
+	$('#messageHistory').append(message);
+}
+
+function showSentMessage(event) {
+	var message = '<div class="messageSent">' 
+				+ '<div class="message bubbleSent">'
+				+ JSON.parse(event.data).data
+				+ '</div>'
+				+ '<div class=date>'
+				+ Date().toString().substring(0,25);
+				+ '</div>'
+				+ '</div>';
+	$('#messageHistory').append(message);
 }
 
 function changeChannel(i) {

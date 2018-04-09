@@ -103,18 +103,44 @@ html, body {
 #messageHistory {
 	height: 500px;
 	overflow: auto;
+	padding-top: 25px;
+}
+
+.messageReceived {
+	padding-left: 25px;
+}
+
+.messageSent {
+	padding-right: 25px;
 	direction: rtl;
 }
 
+.sender {
+	color: lightgray;
+}
+
 .message {
-	text-align:left;
-	border-bottom: solid 1px lightgray;
-	padding: 25px;
+	
 }
 
 .date {
-	color: lightgray;
-	float: right;
+	color: gray;
+}
+
+.bubbleSent {
+    color: white;
+    border-radius: 200px;
+    background-color: blue;
+    padding: 2px 10px;
+    display: inline;
+}
+
+.bubbleReceived {
+    color: white;
+    border-radius: 200px;
+    background-color: lightgray;
+    padding: 2px 10px;
+    display: inline;
 }
 
 #messageForm input {
