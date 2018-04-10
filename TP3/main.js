@@ -94,13 +94,8 @@ function changeChannel(i) {
 }
 
 function leaveChannel() {
-	//leave channel
-	var message = new Message("onLeaveChannel", currentChannel, null, null, null);
-	socketClient.send(JSON.stringify(message));
-	
-	//delete old messages
-	var el = document.getElementById('messageHistory');
-	while ( el.firstChild ) el.removeChild( el.firstChild );
+	//on rejoint le channel par defaut (général)
+	changeChannel(0);
 }
 
 function updateChannelsList(event) {
