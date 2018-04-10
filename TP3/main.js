@@ -67,10 +67,10 @@ function showReceivedMessage(event) {
 
 function showSentMessage(event) {
 	var message = '<div class="messageSent">' 
-				+ '<div class="message bubbleSent">'
+				+ '<div class="message bubbleSent" style="float: right;">'
 				+ JSON.parse(event.data).data
 				+ '</div>'
-				+ '<div class=date>'
+				+ '<div class="date" style="float: right; clear:both;">'
 				+ Date().toString().substring(0,25);
 				+ '</div>'
 				+ '</div>';
@@ -131,7 +131,6 @@ function updateChannelsList(event) {
 		}
 		
 		else if (!JSON.parse(event.data).data[i].joinStatus){
-			console.log("on veux join");
 			cell.innerHTML = '<img src="images/icon-plus.png" alt="Rejoindre le channel" class="iconeChannel" onclick="changeChannel(' 
 							+ i + ')">'
 							+ '<div class="channel" >' 

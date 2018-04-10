@@ -112,7 +112,8 @@ html, body {
 
 .messageSent {
 	padding-right: 25px;
-	direction: rtl;
+	width: 100%;
+	overflow: hidden;
 }
 
 .sender {
