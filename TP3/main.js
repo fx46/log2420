@@ -103,6 +103,15 @@ function leaveChannel() {
 	changeChannel(0);
 }
 
+function addChannel() {
+    var newChannel = prompt("Please enter the channel's name");
+    if (newChannel != null) {
+		//essaye ajoute le channel
+		
+    }
+	console.log(channels);
+}
+
 function updateChannelsList(event) {
 	var table = document.getElementById('channelsTable');
 	
