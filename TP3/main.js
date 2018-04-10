@@ -21,8 +21,13 @@ $(function sendMessage() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
 		var messageBox = document.getElementById('message');
-		var message = new Message("onMessage", currentChannel, messageBox.value, null, null);
-		socketClient.send(JSON.stringify(message));
+		
+		if (messageBox.value.replace(/\s/g, '').length) {
+			//On vérifie que le message ne contient pas seulement des espaces 
+			//ou n'est pas vide.
+			var message = new Message("onMessage", currentChannel, messageBox.value, null, null);
+			socketClient.send(JSON.stringify(message));
+		}
 
 		//clear message entry after send
 		messageBox.value = "";
