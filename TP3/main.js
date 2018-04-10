@@ -93,6 +93,16 @@ function changeChannel(i) {
 	}
 }
 
+function leaveChannel() {
+	//leave channel
+	var message = new Message("onLeaveChannel", currentChannel, null, null, null);
+	socketClient.send(JSON.stringify(message));
+	
+	//delete old messages
+	var el = document.getElementById('messageHistory');
+	while ( el.firstChild ) el.removeChild( el.firstChild );
+}
+
 function updateChannelsList(event) {
 	var table = document.getElementById('channelsTable');
 	
@@ -105,9 +115,34 @@ function updateChannelsList(event) {
 		
 		var row = table.insertRow(i);
 		var cell = row.insertCell(0);
-		cell.innerHTML = '<div class="channel" onclick="changeChannel(' + i + ')">' 
-						+ JSON.parse(event.data).data[i].name 
+		
+		if (i == 0) {
+			//channel général par defaut
+			cell.innerHTML = '<img src="images/icon-star.png" alt="Rejoindre le channel" class="iconeChannel" onclick="changeChannel(' 
+						+ i + ')">'
+						+ '<div class="channel" >' 
+						+ JSON.parse(event.data).data[i].name
+						+ '<div id="defaultChannel" >' 
+						+ "defaut"
+						+ '</div>'
 						+ '</div>';
+		}
+		
+		else if (JSON.parse(event.data).data[i].joinStatus){
+			cell.innerHTML = '<img src="images/icon-subtract.png" alt="Rejoindre le channel" class="iconeChannel" onclick="leaveChannel()">'
+							+ '<div class="channel" >' 
+							+ JSON.parse(event.data).data[i].name
+							+ '</div>';
+		}
+		
+		else if (!JSON.parse(event.data).data[i].joinStatus){
+			console.log("on veux join");
+			cell.innerHTML = '<img src="images/icon-plus.png" alt="Rejoindre le channel" class="iconeChannel" onclick="changeChannel(' 
+							+ i + ')">'
+							+ '<div class="channel" >' 
+							+ JSON.parse(event.data).data[i].name
+							+ '</div>';
+		}
 		
 		//update affichage du channel courrant
 		if (JSON.parse(event.data).data[i].joinStatus) {
