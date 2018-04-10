@@ -158,7 +158,6 @@ html, body {
 	width: 400px;
 	background: lightgray;
 	margin: auto 25px auto auto;
-	padding-bottom:25px;
 }
 
 #channelsWrapper {
@@ -171,10 +170,23 @@ html, body {
 	background-color: GhostWhite;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+	text-align: center;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 .channel {
-	background-color: darkgray;
-	width: 50%;
-	margin: 25px auto;
+	color: blue;
 }
 
 a:visited {

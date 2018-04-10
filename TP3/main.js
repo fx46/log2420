@@ -94,15 +94,20 @@ function changeChannel(i) {
 }
 
 function updateChannelsList(event) {
+	var table = document.getElementById('channelsTable');
+	
 	//delete old channels list
-	var el = document.getElementById('channelsWrapper');
-	while ( el.firstChild ) el.removeChild( el.firstChild );
+	document.getElementById('channelsTable').innerHTML = "";
+	channels = [];
 	
 	//add channels to channels list
 	for(var i = 0; i < JSON.parse(event.data).data.length; i++) {
-		var channelFromList = '<div class="channel" onclick="changeChannel(' + i + ')">' 
-							+ JSON.parse(event.data).data[i].name + '</div>';
-		$('#channelsWrapper').append(channelFromList);
+		
+		var row = table.insertRow(i);
+		var cell = row.insertCell(0);
+		cell.innerHTML = '<div class="channel" onclick="changeChannel(' + i + ')">' 
+						+ JSON.parse(event.data).data[i].name 
+						+ '</div>';
 		
 		//update affichage du channel courrant
 		if (JSON.parse(event.data).data[i].joinStatus) {
