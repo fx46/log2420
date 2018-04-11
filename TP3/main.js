@@ -41,6 +41,10 @@ function receiveMessage(event) {
 		updateChannelsList(event);
 	}
 	
+	else if (JSON.parse(event.data).eventType == "onError") {
+		alert(JSON.parse(event.data).data);
+	}
+	
 	else if ( JSON.parse(event.data).sender == username ) {
 		showSentMessage(event);
 	}
@@ -107,7 +111,8 @@ function addChannel() {
     var newChannel = prompt("Please enter the channel's name");
     if (newChannel != null) {
 		//essaye ajoute le channel
-		
+		message = new Message("onCreateChannel", null, newChannel, null, null);
+		socketClient.send(JSON.stringify(message));
     }
 	console.log(channels);
 }
