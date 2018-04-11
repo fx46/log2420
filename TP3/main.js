@@ -49,8 +49,9 @@ function receiveMessage(event) {
 		showSentMessage(event);
 	}
 	
-	else {
-		showReceivedMessage(event) 
+	else if (JSON.parse(event.data).eventType == "onMessage"){
+		showReceivedMessage(event);
+		notification();
 	}
 
 	//scroll to bottom
@@ -84,6 +85,11 @@ function showSentMessage(event) {
 				+ '</div>'
 				+ '</div>';
 	$('#messageHistory').append(message);
+}
+
+function notification(){
+	var notification = new Audio("sounds/notification.mp3");
+	notification.play();
 }
 
 function changeChannel(i) {
