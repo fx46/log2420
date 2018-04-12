@@ -64,8 +64,12 @@
 			<div id="chatBox">
 				<div id="messageHistory"></div>
 				<form id="messageForm">
+					<div style="width:10%;">
+						<img src="images/like.png" onclick="sendLike()" style="width:80%;"/>
+					</div>
 					<input placeholder="Your message" type="text" id="message">
-					<button type="submit">Submit</button>
+					<button type="submit" style="display: none;">Submit</button>
+					<button type="submit" value="Submit" onclick="sendMessage()">Submit</button>
 				</form>
 			</div>
 		</div>

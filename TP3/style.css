@@ -81,7 +81,7 @@ html, body {
 }
 
 #messages {
-	width: 100%;
+	width: 80%;
 	background: lightgray;
 	margin: 25px;
 	padding-bottom:25px;
@@ -146,13 +146,16 @@ html, body {
 
 #messageForm input {
 	font-size: 115%;
-	width: 100%;
+	width: 80%;
 	border: none;
-	padding: 10px;
+	flex-grow:1;
 }
 
-#messageForm button {
-	display: none;
+#messageForm {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	height:6%;
 }
 
 #channels {

@@ -62,6 +62,14 @@ $(function sendMessage() {
 });
 
 /*********************************************************************
+ *  Permet à l'utilisateur d'envoyer un like
+ *********************************************************************/
+function sendLike() {
+	var message = new Message("onMessage", currentChannel, "like", null, null);
+	socketClient.send(JSON.stringify(message));
+}
+
+/*********************************************************************
  *  Permet à l'utilisateur de voir les messages que d'autres 
  *	utilisateurs ont envoyés, ou les messages envoyés par le serveur.
  *	Si le message concerne l'utilisateur, une notification sera jouée.
@@ -94,20 +102,21 @@ function receiveMessage(event) {
 		//Message envoyé par le serveur pour afficher les anciens messages.
 		
 		//On affiche les anciens messages
-		console.log(JSON.parse(event.data).data.messages);
-		for(var k = 0; k < JSON.parse(event.data).data.messages.length; k ++){
-			var message = '<div class="messageReceived">' 
-							+ '<div class="sender">'
-							+ JSON.parse(event.data).data.messages[k].sender 
-							+ '</div>'
-							+ '<div class="message bubbleReceived">'
-							+ JSON.parse(event.data).data.messages[k].data
-							+ '</div>'
-							+ '<div class=date>'
-							+ Date().toString().substring(0,25);
-							+ '</div>'
-							+ '</div>';
-			$('#messageHistory').append(message);
+		if(JSON.parse(event.data).data.id == currentChannel){
+			for(var k = 0; k < JSON.parse(event.data).data.messages.length; k ++){
+				var message = '<div class="messageReceived">' 
+								+ '<div class="sender">'
+								+ JSON.parse(event.data).data.messages[k].sender 
+								+ '</div>'
+								+ '<div class="message bubbleReceived">'
+								+ JSON.parse(event.data).data.messages[k].data
+								+ '</div>'
+								+ '<div class=date>'
+								+ Date().toString().substring(0,25);
+								+ '</div>'
+								+ '</div>';
+				$('#messageHistory').append(message);
+			}
 		}
 	}	
 
@@ -240,6 +249,9 @@ function updateChannelsList(event) {
 						+ '<div id="defaultChannel" >' 
 						+ "defaut"
 						+ '</div>'
+						+ '<div>'
+						+ "connectés: " + JSON.parse(event.data).data[i].numberOfUsers
+						+ '</div>'
 						+ '</div>';
 		}
 		
@@ -247,6 +259,9 @@ function updateChannelsList(event) {
 			cell.innerHTML = '<img src="images/icon-subtract.png" alt="Rejoindre le channel" class="iconeChannel" onclick="leaveChannel()">'
 							+ '<div class="channel" >' 
 							+ JSON.parse(event.data).data[i].name
+							+ '<div>'
+							+ "connectés: " + JSON.parse(event.data).data[i].numberOfUsers
+							+ '</div>'
 							+ '</div>';
 		}
 		
@@ -255,6 +270,9 @@ function updateChannelsList(event) {
 							+ i + ')">'
 							+ '<div class="channel" >' 
 							+ JSON.parse(event.data).data[i].name
+							+ '<div>'
+							+ "connectés: " + JSON.parse(event.data).data[i].numberOfUsers
+							+ '</div>'
 							+ '</div>';
 		}
 		
