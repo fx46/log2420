@@ -76,22 +76,20 @@ html, body {
 
 #chatPannel {
 	display: flex;
-	margin: auto;
 	width: 100%;
 }
 
 #messages {
-	width: 80%;
 	background: lightgray;
 	margin: 25px;
-	padding-bottom:25px;
+	margin-left: auto;
+	width: 65%;
 }
 
 #chatBox {
 	margin: 25px;
 	border: solid 1px #ccc;
 	border-radius: 5px;
-	overflow: hidden;
 	background-color: GhostWhite;
 }
 
@@ -155,13 +153,13 @@ html, body {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: flex-start;
-	height:6%;
+	height:50px;
 }
 
 #channels {
-	width: 400px;
+	width: 20%;
 	background: lightgray;
-	margin: auto 25px auto auto;
+	margin: auto;
 }
 
 #channelsWrapper {
