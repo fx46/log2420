@@ -1,7 +1,7 @@
 var socketClient;
 var channels = [];
 var currentChannel;
-var username = "FX";
+var username = "";
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
@@ -9,6 +9,11 @@ var username = "FX";
  *********************************************************************/
 $(document).ready(function(){
 	document.getElementById("status").innerHTML = "Status: Connecting...";
+	
+	while(username == null){
+		var username = prompt("Please enter your user name");
+	}
+	
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
 	document.getElementById("UserNameTitre").innerHTML = username;
 	
@@ -20,8 +25,7 @@ $(document).ready(function(){
 $(function sendMessage() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
-		var messageBox = document.getElementById('message');
-		
+		var messageBox = document.getElementById('message');		
 		if (messageBox.value.replace(/\s/g, '').length) {
 			//On vérifie que le message ne contient pas seulement des espaces 
 			//ou n'est pas vide.
@@ -35,8 +39,6 @@ $(function sendMessage() {
 });
 
 function receiveMessage(event) {
-	console.log(JSON.parse(event.data));
-	
 	if (JSON.parse(event.data).eventType == "updateChannelsList") {
 		updateChannelsList(event);
 	}
@@ -114,13 +116,13 @@ function leaveChannel() {
 }
 
 function addChannel() {
+	leaveChannel();
     var newChannel = prompt("Please enter the channel's name");
     if (newChannel != null) {
-		//essaye ajoute le channel
+		//essaye d'ajouter le channel
 		message = new Message("onCreateChannel", null, newChannel, null, null);
 		socketClient.send(JSON.stringify(message));
     }
-	console.log(channels);
 }
 
 function updateChannelsList(event) {
