@@ -1,13 +1,23 @@
 var socketClient;
 var channels = [];
 var currentChannel;
-var username = " ";
+var username = "";
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
  *  Elle appelle toutes les autres fonction pour charger la page.
  *********************************************************************/
 $(document).ready(function(){
+	login();
+	setupWebSocket();
+})
+
+/*********************************************************************
+ *  Demande à l'utilisateur de rentrer son nom d'utilisateur.
+ *	L'utilisateur peut changer son nom d'utilisateur s'il clique sur
+ *	l'icone de profil.
+ *********************************************************************/
+function login() {
 	document.getElementById("status").innerHTML = "Status: Connecting...";
 	
 	username = prompt("Please enter your user name.");
@@ -16,14 +26,16 @@ $(document).ready(function(){
 		//Tant que l'username ne contient rien d'autre que des espaces.
 		username = prompt("Please enter a valid user name.");
 	}
+}
 
+function setupWebSocket() {
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
 	document.getElementById("UserNameTitre").innerHTML = username;
 	
 	socketClient.onmessage = function(event){
 		receiveMessage(event);
 	}	
-})
+}
 
 $(function sendMessage() {
 	$('form').on('submit', function (event) {
@@ -42,6 +54,8 @@ $(function sendMessage() {
 });
 
 function receiveMessage(event) {
+	console.log(JSON.parse(event.data));
+	
 	if (JSON.parse(event.data).eventType == "updateChannelsList") {
 		updateChannelsList(event);
 	}
