@@ -28,6 +28,10 @@ function login() {
 	}
 }
 
+/*********************************************************************
+ *  Initialise le WebSocket avec le nom d'utilisateur. Quand le socketClient
+ *	recoit un message, la fonction receiveMessage sera appellé avec l'évennement.
+ *********************************************************************/
 function setupWebSocket() {
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
 	document.getElementById("UserNameTitre").innerHTML = username;
@@ -37,6 +41,10 @@ function setupWebSocket() {
 	}	
 }
 
+/*********************************************************************
+ *  Permet à l'utilisateur d'envoyer un message au serveur lorsqu'il a 
+ *	écrit un message et appuyé sur la touche entrer.
+ *********************************************************************/
 $(function sendMessage() {
 	$('form').on('submit', function (event) {
 		event.preventDefault();
@@ -53,22 +61,31 @@ $(function sendMessage() {
 	});
 });
 
+/*********************************************************************
+ *  Permet à l'utilisateur de voir les messages que d'autres 
+ *	utilisateurs ont envoyés, ou les messages envoyés par le serveur.
+ *	Si le message concerne l'utilisateur, une notification sera jouée.
+ *********************************************************************/
 function receiveMessage(event) {
 	console.log(JSON.parse(event.data));
 	
 	if (JSON.parse(event.data).eventType == "updateChannelsList") {
+		//Si on doit mettre à jour la liste des channels.
 		updateChannelsList(event);
 	}
 	
 	else if (JSON.parse(event.data).eventType == "onError") {
+		//En cas d'une erreur.
 		alert(JSON.parse(event.data).data);
 	}
 	
 	else if ( JSON.parse(event.data).sender == username ) {
+		//Message envoyé par l'utilisateur.
 		showSentMessage(event);
 	}
 	
 	else if (JSON.parse(event.data).eventType == "onMessage"){
+		//Message envoyé par un autre utilisateur.
 		showReceivedMessage(event);
 		notification();
 	}
@@ -79,6 +96,10 @@ function receiveMessage(event) {
 	});
 }
 
+/*********************************************************************
+ *  Affiche à l'utilisateur un message qu'un autre utilisateur 
+ *	a envoyé.
+ *********************************************************************/
 function showReceivedMessage(event) {
 	var message = '<div class="messageReceived">' 
 				+ '<div class="sender">'
@@ -94,6 +115,9 @@ function showReceivedMessage(event) {
 	$('#messageHistory').append(message);
 }
 
+/*********************************************************************
+ *  Affiche à l'utilisateur un message qu'il a lui-même envoyé.
+ *********************************************************************/
 function showSentMessage(event) {
 	var message = '<div class="messageSent">' 
 				+ '<div class="message bubbleSent" style="float: right;">'
@@ -106,11 +130,18 @@ function showSentMessage(event) {
 	$('#messageHistory').append(message);
 }
 
+/*********************************************************************
+ *  Joue une notification sonore, est appellée lorsqu'on recoit
+ *	un message concernant l'utilisateur.
+ *********************************************************************/
 function notification(){
 	var notification = new Audio("sounds/notification.mp3");
 	notification.play();
 }
 
+/*********************************************************************
+ *  Permet à l'utilisateur de changer de channel.
+ *********************************************************************/
 function changeChannel(i) {
 	if(currentChannel != channels[i]){
 		//leave old channel
@@ -127,11 +158,18 @@ function changeChannel(i) {
 	}
 }
 
+/*********************************************************************
+ *  Quitte le channel courant et rejoint le channel par défaut (général)
+ *********************************************************************/
 function leaveChannel() {
 	//on rejoint le channel par defaut (général)
 	changeChannel(0);
 }
 
+/*********************************************************************
+ *  Permet à l'utilisateur de créer un nouveau channel, puis rejoint
+ *	ce channel automatiquement après sa création.
+ *********************************************************************/
 function addChannel() {
 	leaveChannel();
 	
@@ -148,6 +186,13 @@ function addChannel() {
 	socketClient.send(JSON.stringify(message));
 }
 
+/*********************************************************************
+ *  Met à jour la liste des différents channels avec les informations
+ *	que le serveur envoit dans un message de type "updateChannelsList".
+ *	Ajoute du code HTML pour ajouter une image à côté du nom du 
+ *	channel pour permettre à l'utilisateur de le quitter ou de le 
+ *	rejoindre.
+ *********************************************************************/
 function updateChannelsList(event) {
 	var table = document.getElementById('channelsTable');
 	
