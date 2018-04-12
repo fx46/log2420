@@ -127,10 +127,28 @@ function receiveMessage(event) {
 }
 
 /*********************************************************************
- *  Affiche à l'utilisateur un message qu'un autre utilisateur 
- *	a envoyé.
+ *  Affiche à l'utilisateur un message qu'un autre utilisateur a 
+ *	envoyé. On affiche les messages dans la partie gauche de la fenêtre.
  *********************************************************************/
 function showReceivedMessage(event) {
+	//Si un like a été envoyé
+	if(JSON.parse(event.data).data == "like"){
+		var message = '<div class="messageReceived">' 
+					+ '<div class="sender">'
+					+ JSON.parse(event.data).sender 
+					+ '</div>'
+					+ '<div class="message bubbleReceived">'
+					+ '<img src="images/like.png" style="width:18px; height:18px;">'
+					+ '</div>'
+					+ '<div class=date>'
+					+ Date().toString().substring(0,25);
+					+ '</div>'
+					+ '</div>';
+		$('#messageHistory').append(message);
+		return;
+	}
+	
+	//Sinon c'est un message normal
 	var message = '<div class="messageReceived">' 
 				+ '<div class="sender">'
 				+ JSON.parse(event.data).sender 
@@ -146,9 +164,25 @@ function showReceivedMessage(event) {
 }
 
 /*********************************************************************
- *  Affiche à l'utilisateur un message qu'il a lui-même envoyé.
+ *  Affiche à l'utilisateur un message qu'il a lui-même envoyé, mais 
+ *	dans la partie droite de la fenêtre et dans une autre couleur.
  *********************************************************************/
 function showSentMessage(event) {
+	//Si un like a été envoyé
+	if(JSON.parse(event.data).data == "like"){
+		var message = '<div class="messageSent">' 
+					+ '<div class="message bubbleSent" style="float: right;">'
+					+ '<img src="images/like.png" style="width:25px; height:25px;">'
+					+ '</div>'
+					+ '<div class="date" style="float: right; clear:both;">'
+					+ Date().toString().substring(0,25);
+					+ '</div>'
+					+ '</div>';
+		$('#messageHistory').append(message);
+		return;
+	}
+	
+	//Sinon c'est un message normal
 	var message = '<div class="messageSent">' 
 				+ '<div class="message bubbleSent" style="float: right;">'
 				+ JSON.parse(event.data).data

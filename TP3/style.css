@@ -10,6 +10,7 @@ html, body {
 #contour{
 	border: 4px solid #DEDEDE;
 	border-top: none;
+	border-bottom: none;
 }
 
 #banniere {
