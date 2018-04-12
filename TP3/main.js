@@ -1,7 +1,7 @@
 var socketClient;
 var channels = [];
 var currentChannel;
-var username = "";
+var username = " ";
 
 /*********************************************************************
  *  Quand le document est prêt, cette fonction est active.
@@ -10,10 +10,13 @@ var username = "";
 $(document).ready(function(){
 	document.getElementById("status").innerHTML = "Status: Connecting...";
 	
-	while(username == null){
-		var username = prompt("Please enter your user name");
-	}
+	username = prompt("Please enter your user name.");
 	
+	while(!username.replace(/\s/g, '').length){	
+		//Tant que l'username ne contient rien d'autre que des espaces.
+		username = prompt("Please enter a valid user name.");
+	}
+
 	socketClient = new WebSocket("ws://log2420-nginx.info.polymtl.ca/chatservice?username=" + username);
 	document.getElementById("UserNameTitre").innerHTML = username;
 	
@@ -117,12 +120,18 @@ function leaveChannel() {
 
 function addChannel() {
 	leaveChannel();
-    var newChannel = prompt("Please enter the channel's name");
-    if (newChannel != null) {
-		//essaye d'ajouter le channel
-		message = new Message("onCreateChannel", null, newChannel, null, null);
-		socketClient.send(JSON.stringify(message));
-    }
+	
+    var newChannel = "";
+	newChannel = prompt("Please enter the channel's name");
+	
+	if(!newChannel.replace(/\s/g, '').length){	
+		alert("This is not a valid name for a channel.");
+		return;
+	}
+	
+	//essaye d'ajouter le channel
+	message = new Message("onCreateChannel", null, newChannel, null, null);
+	socketClient.send(JSON.stringify(message));
 }
 
 function updateChannelsList(event) {
