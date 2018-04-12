@@ -89,6 +89,27 @@ function receiveMessage(event) {
 		showReceivedMessage(event);
 		notification();
 	}
+	
+	else if (JSON.parse(event.data).eventType == "onGetChannel"){
+		//Message envoyé par le serveur pour afficher les anciens messages.
+		
+		//On affiche les anciens messages
+		console.log(JSON.parse(event.data).data.messages);
+		for(var k = 0; k < JSON.parse(event.data).data.messages.length; k ++){
+			var message = '<div class="messageReceived">' 
+							+ '<div class="sender">'
+							+ JSON.parse(event.data).data.messages[k].sender 
+							+ '</div>'
+							+ '<div class="message bubbleReceived">'
+							+ JSON.parse(event.data).data.messages[k].data
+							+ '</div>'
+							+ '<div class=date>'
+							+ Date().toString().substring(0,25);
+							+ '</div>'
+							+ '</div>';
+			$('#messageHistory').append(message);
+		}
+	}	
 
 	//scroll to bottom
 	$('#messageHistory').stop ().animate ({
@@ -154,6 +175,10 @@ function changeChannel(i) {
 		
 		//join new channel
 		message = new Message("onJoinChannel", channels[i], null, null, null);
+		socketClient.send(JSON.stringify(message));
+		
+		//get old messages
+		message = new Message("onGetChannel", channels[i], null, null, null);
 		socketClient.send(JSON.stringify(message));
 	}
 }
