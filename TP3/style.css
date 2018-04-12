@@ -35,7 +35,6 @@ html, body {
 
 .icone {
 	text-shadow: 1px 1px 1px #000000;
-	margin-top: 10px;
 	font-size:250% !important; 
 }
 
@@ -51,7 +50,6 @@ html, body {
 }
 
 #banniere2{
-	height: 11%;
 	color: white;
 	background-color: #008999;
 	display: flex;
@@ -64,8 +62,8 @@ html, body {
 
 #groupeName{
 	font-size: 150%;
-	width: 20%;
 }
+
 #GroupList{
 	display: flex;
 }
@@ -116,10 +114,6 @@ html, body {
 
 .sender {
 	color: lightgray;
-}
-
-.message {
-	
 }
 
 .date {
@@ -210,8 +204,4 @@ a:visited {
 
 a:hover {
 	color:#DCDCDC;
-}
-
-img {
-	object-fit: contain;
 }

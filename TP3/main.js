@@ -278,6 +278,9 @@ function updateChannelsList(event) {
 		
 		//update affichage du channel courrant
 		if (JSON.parse(event.data).data[i].joinStatus) {
+			//update HTML
+			document.getElementById('groupeName').innerHTML = JSON.parse(event.data).data[i].name;
+			
 			currentChannel = JSON.parse(event.data).data[i].id;
 			document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
 		}
