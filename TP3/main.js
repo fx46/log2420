@@ -104,18 +104,33 @@ function receiveMessage(event) {
 		//On affiche les anciens messages
 		if(JSON.parse(event.data).data.id == currentChannel){
 			for(var k = 0; k < JSON.parse(event.data).data.messages.length; k ++){
-				var message = '<div class="messageReceived">' 
-								+ '<div class="sender">'
-								+ JSON.parse(event.data).data.messages[k].sender 
-								+ '</div>'
-								+ '<div class="message bubbleReceived">'
+				//TODO: remplacer la date par la date du server
+				if(JSON.parse(event.data).data.messages[k].sender == username){
+					var message = '<div class="messageSent">' 
+								+ '<div class="message bubbleSent" style="float: right;">'
 								+ JSON.parse(event.data).data.messages[k].data
 								+ '</div>'
-								+ '<div class=date>'
+								+ '<div class="date" style="float: right; clear:both;">'
 								+ Date().toString().substring(0,25);
 								+ '</div>'
 								+ '</div>';
-				$('#messageHistory').append(message);
+					$('#messageHistory').append(message);
+				}
+				
+				else{
+					var message = '<div class="messageReceived">' 
+									+ '<div class="sender">'
+									+ JSON.parse(event.data).data.messages[k].sender 
+									+ '</div>'
+									+ '<div class="message bubbleReceived">'
+									+ JSON.parse(event.data).data.messages[k].data
+									+ '</div>'
+									+ '<div class=date>'
+									+ Date().toString().substring(0,25);
+									+ '</div>'
+									+ '</div>';
+					$('#messageHistory').append(message);		
+				}
 			}
 		}
 	}	
@@ -316,7 +331,6 @@ function updateChannelsList(event) {
 			document.getElementById('groupeName').innerHTML = JSON.parse(event.data).data[i].name;
 			
 			currentChannel = JSON.parse(event.data).data[i].id;
-			document.getElementById('currentChannel').innerHTML = "Current channel: " + JSON.parse(event.data).data[i].name;
 		}
 		
 		channels.push(JSON.parse(event.data).data[i].id);
