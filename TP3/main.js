@@ -104,7 +104,6 @@ function receiveMessage(event) {
 		//On affiche les anciens messages
 		if(JSON.parse(event.data).data.id == currentChannel){
 			for(var k = 0; k < JSON.parse(event.data).data.messages.length; k ++){
-				//TODO: remplacer la date par la date du server
 				if(JSON.parse(event.data).data.messages[k].sender == username){
 					var message = '<div class="messageSent">' 
 								+ '<div class="message bubbleSent" style="float: right;">'
